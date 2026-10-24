@@ -38,29 +38,26 @@ def list_todos(status: str = "all") -> str:
     return "\n".join(f"{'✅' if d else '⬜'} [{i}] {t}" for i, t, d in rows)
 
 @mcp.tool()
-def complete_todo(todo_id: int) -> str:
+def complete_todo(id: int) -> str:
     """将指定 id 的待办标记为已完成。"""
     conn = get_conn()
     cursor = conn.cursor()
-    cursor.execute("UPDATE todos SET done = 1 WHERE id = ?", (todo_id,))
+    cursor.execute("UPDATE todos SET done = 1 WHERE id = ?", (id,))
     conn.commit()
-    
-    # 关键：如果修改了 0 行，说明没这个 id
     if cursor.rowcount == 0:
-        return f"操作失败：没有找到编号为 {todo_id} 的待办事项。"
-    return f"已将第 {todo_id} 条待办事项标记为完成。"
+        return f"操作失败：没有找到编号为 {id} 的待办事项。"
+    return f"已将第 {id} 条待办事项标记为完成。"
 
 @mcp.tool()
-def delete_todo(todo_id: int) -> str:
+def delete_todo(id: int) -> str:
     """删除指定 id 的待办事项。"""
     conn = get_conn()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM todos WHERE id = ?", (todo_id,))
+    cursor.execute("DELETE FROM todos WHERE id = ?", (id,))
     conn.commit()
-    
     if cursor.rowcount == 0:
-        return f"操作失败：没有找到编号为 {todo_id} 的待办事项。"
-    return f"已成功删除第 {todo_id} 条待办事项。"
+        return f"操作失败：没有找到编号为 {id} 的待办事项。"
+    return f"已成功删除第 {id} 条待办事项。"
 
 if __name__ == "__main__":
     mcp.run()
