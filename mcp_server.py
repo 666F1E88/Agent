@@ -42,14 +42,26 @@ def list_todos(status: str = "all") -> str:
         sql += " WHERE done = 0"
     elif status == "done":
         sql += " WHERE done = 1"
+    
+    # 核心排序逻辑：
+    # 把deadline为'无'的排到最后
+    # 按截止时间升序
+    # 如果时间一样，按优先级高->中->低排序
+    sql += """ 
+        ORDER BY 
+            CASE WHEN deadline = '无' THEN 1 ELSE 0 END ASC,
+            deadline ASC,
+            CASE priority WHEN '高' THEN 1 WHEN '中' THEN 2 WHEN '低' THEN 3 ELSE 4 END ASC
+    """
+    
     rows = get_conn().execute(sql).fetchall()
     if not rows:
         return "当前没有符合条件的待办。"
     
-    result = []
-    for r in rows:
+    result = ["以下是查到的所有待办（请全部原样展示给用户，千万不要遗漏）："]
+    for index, r in enumerate(rows, start=1):
         icon = "✅" if r[2] else "⬜"
-        result.append(f"{icon} [{r[0]}] {r[1]} | 优先级:{r[3]} | 耗时:{r[4]} | 截止:{r[5]}")
+        result.append(f"{index}. {icon} {r[1]} | 优先级:{r[3]} | 耗时:{r[4]} | 截止:{r[5]} (内部ID:{r[0]})")
     return "\n".join(result)
 
 @mcp.tool()
@@ -77,16 +89,25 @@ def delete_todo(id: int) -> str:
 @mcp.tool()
 def export_markdown() -> str:
     """一键将当前所有未完成的待办导出为真实的 Markdown 文件。"""
-    rows = get_conn().execute("SELECT id, title, priority, deadline FROM todos WHERE done = 0").fetchall()
+    # 导出应用同样的排序规则
+    sql = """
+        SELECT id, title, priority, deadline FROM todos 
+        WHERE done = 0 
+        ORDER BY 
+            CASE WHEN deadline = '无' THEN 1 ELSE 0 END ASC,
+            deadline ASC,
+            CASE priority WHEN '高' THEN 1 WHEN '中' THEN 2 WHEN '低' THEN 3 ELSE 4 END ASC
+    """
+    rows = get_conn().execute(sql).fetchall()
     if not rows:
         return "目前没有未完成的任务，不需要导出。"
     
     md = "# 我的待办清单\n\n"
-    md += "| 编号 | 任务 | 优先级 | 截止时间 |\n|---|---|---|---|\n"
-    for r in rows:
-        md += f"| {r[0]} | {r[1]} | {r[2]} | {r[3]} |\n"
+    md += "| 序号 | 任务 | 优先级 | 截止时间 |\n|---|---|---|---|\n"
     
-    # 在本地生成文件
+    for index, r in enumerate(rows, start=1):
+        md += f"| {index} | {r[1]} | {r[2]} | {r[3]} |\n"
+    
     filename = "todo_export.md"
     with open(filename, "w", encoding="utf-8") as f:
         f.write(md)
