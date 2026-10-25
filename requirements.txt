@@ -1,0 +1,12 @@
+# ---- 核心（必装）----
+streamlit>=1.30.0
+mcp>=1.0.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# ---- 语音输入/输出（加分项，可选）----
+edge-tts>=6.1.19           # 微软 Edge 免费 TTS，零 key
+faster-whisper>=1.1.0      # 本地语音转文字（不想装可整段注释掉，按钮自动隐藏）
+# ⚠️ 大坑：PyAV 必须锁 13.x。14+ 移除了 av.open 的 metadata_errors 参数，
+#     faster-whisper 解码音频会必抛 TypeError，表现是「录音清楚但一直提示没听清」。
+av==13.1.0
