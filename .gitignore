@@ -1,11 +1,37 @@
-# 虚拟环境
-.venv/
-__pycache__/
-
-# 数据库和本地文件
-*.db
-todo_export.md
-user_memory.json
-
-# 环境变量
+# 敏感信息
 .env
+.streamlit/secrets.toml
+
+# 运行时数据（队友 A 的数据库 / 记忆 / 导出文件）
+data/*.db
+data/user_memory.json
+data/todo_export.md
+data/*.sqlite
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# 语音模型（138MB，超 GitHub 单文件 100MB 上限；用 scripts/fetch_asr_model.py 获取）
+models/whisper-*/
+*.bin
+*.mp3
+*.wav
+*.m4a
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# 临时调试文件
+_*.txt
+_*.py
+_*.mp3
