@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 920" width="1200" height="920" font-family="'Microsoft YaHei','SimHei',sans-serif">
+  <rect x="0" y="0" width="1200" height="920" fill="#FAFAFA"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1A73E8"/>
+  <rect x="0" y="56" width="1200" height="4" fill="#0B57D0"/>
+  <text x="28" y="39" font-size="22" font-weight="bold" fill="#FFFFFF">图 6  时序图 —— 溯源问答（最关键算法模块）</text>
+  <text x="1172" y="39" font-size="13" fill="#D2E3FC" text-anchor="end">强制带页码 · 反幻觉 · BM25 检索增强</text>
+
+  <defs>
+    <marker id="sa" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#37474F"/></marker>
+    <marker id="sd" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#5F6368"/></marker>
+  </defs>
+
+  <!-- ===== 生命线（虚线） ===== -->
+  <g stroke="#9AA0A6" stroke-width="1.5" stroke-dasharray="5 5">
+    <line x1="110" y1="133" x2="110" y2="850"/>
+    <line x1="260" y1="133" x2="260" y2="850"/>
+    <line x1="410" y1="133" x2="410" y2="850"/>
+    <line x1="560" y1="133" x2="560" y2="850"/>
+    <line x1="710" y1="133" x2="710" y2="850"/>
+    <line x1="860" y1="133" x2="860" y2="850"/>
+    <line x1="1010" y1="133" x2="1010" y2="850"/>
+  </g>
+
+  <!-- ===== 对象框 ===== -->
+  <rect x="55" y="95" width="110" height="38" rx="6" fill="#E8F0FE" stroke="#1A73E8" stroke-width="2"/>
+  <text x="110" y="119" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">用户</text>
+  <rect x="205" y="95" width="110" height="38" rx="6" fill="#E6F4EA" stroke="#34A853" stroke-width="2"/>
+  <text x="260" y="119" font-size="12.5" font-weight="bold" fill="#202124" text-anchor="middle">QaView</text>
+  <rect x="355" y="95" width="110" height="38" rx="6" fill="#FEF7E0" stroke="#F9AB00" stroke-width="2"/>
+  <text x="410" y="119" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">QaController</text>
+  <rect x="505" y="95" width="110" height="38" rx="6" fill="#F3E8FD" stroke="#9334E6" stroke-width="2"/>
+  <text x="560" y="119" font-size="12.5" font-weight="bold" fill="#202124" text-anchor="middle">Retriever</text>
+  <rect x="655" y="95" width="110" height="38" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="2"/>
+  <text x="710" y="119" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">LLMClient</text>
+  <rect x="805" y="95" width="110" height="38" rx="6" fill="#E0F7FA" stroke="#00ACC1" stroke-width="2"/>
+  <text x="860" y="119" font-size="12.5" font-weight="bold" fill="#202124" text-anchor="middle">DeepSeek</text>
+  <rect x="955" y="95" width="110" height="38" rx="6" fill="#F1F3F4" stroke="#5F6368" stroke-width="2"/>
+  <text x="1010" y="119" font-size="12.5" font-weight="bold" fill="#202124" text-anchor="middle">SQLite</text>
+
+  <!-- ===== 激活条 ===== -->
+  <g fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.2">
+    <rect x="252" y="175" width="16" height="600"/>
+  </g>
+  <g fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.2">
+    <rect x="402" y="215" width="16" height="520"/>
+  </g>
+  <g fill="#F3E8FD" stroke="#9334E6" stroke-width="1.2">
+    <rect x="552" y="255" width="16" height="120"/>
+  </g>
+  <g fill="#F1F3F4" stroke="#5F6368" stroke-width="1.2">
+    <rect x="1002" y="295" width="16" height="40"/>
+    <rect x="1002" y="655" width="16" height="40"/>
+  </g>
+  <g fill="#FCE8E6" stroke="#EA4335" stroke-width="1.2">
+    <rect x="702" y="455" width="16" height="120"/>
+  </g>
+  <g fill="#E0F7FA" stroke="#00ACC1" stroke-width="1.2">
+    <rect x="852" y="495" width="16" height="40"/>
+  </g>
+
+  <!-- ===== 消息流（实线=调用，虚线=返回） ===== -->
+  <!-- 1 用户输入问题 -->
+  <line x1="110" y1="175" x2="260" y2="175" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="185" y="169" font-size="12" fill="#202124" text-anchor="middle">输入问题 q</text>
+  <!-- 2 ask() -->
+  <line x1="260" y1="215" x2="410" y2="215" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="335" y="209" font-size="12" fill="#202124" text-anchor="middle">ask(q, user)</text>
+  <!-- 3 retrievePages() -->
+  <line x1="410" y1="255" x2="560" y2="255" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="485" y="249" font-size="12" fill="#202124" text-anchor="middle">retrievePages(q)</text>
+  <!-- 4 BM25检索 SQLite 读 -->
+  <line x1="560" y1="295" x2="1010" y2="295" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="785" y="289" font-size="12" fill="#202124" text-anchor="middle">BM25 检索：读取 pages 表</text>
+  <!-- 5 返回相关页 -->
+  <line x1="1010" y1="335" x2="560" y2="335" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#sd)"/>
+  <text x="785" y="329" font-size="12" fill="#3C4043" text-anchor="middle">返回候选页片段</text>
+  <!-- 6 返回相关页 -->
+  <line x1="560" y1="375" x2="410" y2="375" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#sd)"/>
+  <text x="485" y="369" font-size="12" fill="#3C4043" text-anchor="middle">返回相关页(Top-K)</text>
+  <!-- 7 自调用 拼Prompt -->
+  <path d="M410,405 L452,405 L452,425 L418,425" fill="none" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="470" y="415" font-size="12" fill="#202124">拼 Prompt（强约束：必须附页码 / 未命中拒答）</text>
+  <!-- 8 chat.completions.create -->
+  <line x1="410" y1="455" x2="710" y2="455" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="560" y="449" font-size="12" fill="#202124" text-anchor="middle">chat.completions.create(...)</text>
+  <!-- 9 HTTP 请求 -->
+  <line x1="710" y1="495" x2="860" y2="495" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="785" y="489" font-size="12" fill="#202124" text-anchor="middle">OpenAI 兼容请求</text>
+  <!-- 10 返回回答 -->
+  <line x1="860" y1="535" x2="710" y2="535" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#sd)"/>
+  <text x="785" y="529" font-size="12" fill="#3C4043" text-anchor="middle">返回回答文本</text>
+  <!-- 11 返回回答 -->
+  <line x1="710" y1="575" x2="410" y2="575" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#sd)"/>
+  <text x="560" y="569" font-size="12" fill="#3C4043" text-anchor="middle">返回 LLM 回答</text>
+  <!-- 12 自调用 解析页码 -->
+  <path d="M410,605 L452,605 L452,625 L418,625" fill="none" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="470" y="615" font-size="12" fill="#202124">解析引用页码，校验是否来自检索页</text>
+  <!-- 13 保存 QARecord -->
+  <line x1="410" y1="655" x2="1010" y2="655" stroke="#37474F" stroke-width="1.8" marker-end="url(#sa)"/>
+  <text x="710" y="649" font-size="12" fill="#202124" text-anchor="middle">保存 QARecord（写入 source_pages JSON）</text>
+  <!-- 14 写入确认 -->
+  <line x1="1010" y1="695" x2="410" y2="695" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#sd)"/>
+  <text x="710" y="689" font-size="12" fill="#3C4043" text-anchor="middle">写入确认（qa_id）</text>
+  <!-- 15 返回 QARecord -->
+  <line x1="410" y1="735" x2="260" y2="735" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#sd)"/>
+  <text x="335" y="729" font-size="12" fill="#3C4043" text-anchor="middle">返回 QARecord</text>
+  <!-- 16 展示带页码回答 -->
+  <line x1="260" y1="775" x2="110" y2="775" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#sd)"/>
+  <text x="185" y="769" font-size="12" fill="#3C4043" text-anchor="middle">展示带页码回答</text>
+
+  <!-- ===== 阶段划分标注 ===== -->
+  <line x1="40" y1="285" x2="1160" y2="285" stroke="#DADCE0" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="44" y="299" font-size="12" fill="#9AA0A6">检索阶段</text>
+  <line x1="40" y1="445" x2="1160" y2="445" stroke="#DADCE0" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="44" y="459" font-size="12" fill="#9AA0A6">生成阶段</text>
+  <line x1="40" y1="645" x2="1160" y2="645" stroke="#DADCE0" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="44" y="659" font-size="12" fill="#9AA0A6">持久化与展示</text>
+
+  <!-- 底部终止标记 -->
+  <line x1="100" y1="845" x2="120" y2="845" stroke="#37474F" stroke-width="2"/>
+  <line x1="250" y1="845" x2="270" y2="845" stroke="#37474F" stroke-width="2"/>
+
+  <text x="600" y="895" font-size="12" fill="#5F6368" text-anchor="middle">实线实心箭头=同步调用 · 虚线箭头=返回 · 细长矩形=对象激活期；全程强制页码溯源，未命中则拒答</text>
+</svg>

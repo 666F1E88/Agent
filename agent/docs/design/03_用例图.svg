@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" font-family="'Microsoft YaHei','SimHei',sans-serif">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="1200" height="900" fill="#FAFAFA"/>
+
+  <!-- 标题栏 -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1A73E8"/>
+  <rect x="0" y="56" width="1200" height="4" fill="#0B57D0"/>
+  <text x="28" y="39" font-size="22" font-weight="bold" fill="#FFFFFF">图 3  用例图</text>
+  <text x="1172" y="39" font-size="14" fill="#D2E3FC" text-anchor="end">学生 / 管理员 两类 Actor · include / extend 关系</text>
+
+  <defs>
+    <marker id="ucInc" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5F6368"/>
+    </marker>
+  </defs>
+
+  <!-- ===== 系统边界 ===== -->
+  <rect x="150" y="105" width="900" height="730" rx="14" fill="#FFFFFF" stroke="#37474F" stroke-width="2" stroke-dasharray="2 0"/>
+  <text x="165" y="132" font-size="14" font-weight="bold" fill="#37474F">« system » TaskMate 课程资料第二大脑</text>
+
+  <!-- ===== Actor：学生（左） ===== -->
+  <g stroke="#1A73E8" stroke-width="2.6" fill="none" stroke-linecap="round">
+    <circle cx="60" cy="410" r="15" fill="#E8F0FE"/>
+    <line x1="60" y1="425" x2="60" y2="462"/>
+    <line x1="30" y1="438" x2="90" y2="438"/>
+    <line x1="60" y1="462" x2="40" y2="492"/>
+    <line x1="60" y1="462" x2="80" y2="492"/>
+  </g>
+  <text x="60" y="520" font-size="15" font-weight="bold" fill="#1A73E8" text-anchor="middle">学生</text>
+
+  <!-- ===== Actor：管理员（右） ===== -->
+  <g stroke="#34A853" stroke-width="2.6" fill="none" stroke-linecap="round">
+    <circle cx="1140" cy="410" r="15" fill="#E6F4EA"/>
+    <line x1="1140" y1="425" x2="1140" y2="462"/>
+    <line x1="1110" y1="438" x2="1170" y2="438"/>
+    <line x1="1140" y1="462" x2="1120" y2="492"/>
+    <line x1="1140" y1="462" x2="1160" y2="492"/>
+  </g>
+  <text x="1140" y="520" font-size="15" font-weight="bold" fill="#34A853" text-anchor="middle">管理员</text>
+
+  <!-- ===== Actor 与用例的关联（实线） ===== -->
+  <g stroke="#37474F" stroke-width="1.6" fill="none">
+    <!-- 学生 -> 学生用例（左列） -->
+    <line x1="88" y1="440" x2="212" y2="190"/>
+    <line x1="88" y1="440" x2="212" y2="310"/>
+    <line x1="88" y1="440" x2="212" y2="430"/>
+    <line x1="88" y1="440" x2="212" y2="550"/>
+    <!-- 学生 -> 学生用例（右列） -->
+    <line x1="88" y1="444" x2="432" y2="190"/>
+    <line x1="88" y1="446" x2="432" y2="310"/>
+    <line x1="88" y1="448" x2="432" y2="430"/>
+    <!-- 管理员 -> 管理员用例 -->
+    <line x1="1112" y1="440" x2="910" y2="230"/>
+    <line x1="1112" y1="440" x2="910" y2="350"/>
+    <line x1="1112" y1="440" x2="910" y2="470"/>
+    <line x1="1112" y1="440" x2="910" y2="590"/>
+    <line x1="1112" y1="440" x2="910" y2="710"/>
+  </g>
+
+  <!-- ===== include / extend 关系（虚线箭头） ===== -->
+  <g stroke="#5F6368" stroke-width="1.8" stroke-dasharray="6 4" fill="none" marker-end="url(#ucInc)">
+    <line x1="350" y1="332" x2="450" y2="536"/>
+    <line x1="350" y1="452" x2="450" y2="646"/>
+    <line x1="300" y1="646" x2="330" y2="454"/>
+  </g>
+  <!-- include/extend 标注统一置于用例椭圆之后绘制，避免被覆盖 -->
+
+  <!-- ===== 学生用例（椭圆，蓝） ===== -->
+  <g fill="#E8F0FE" stroke="#1A73E8" stroke-width="2">
+    <ellipse cx="300" cy="190" rx="90" ry="25"/><text x="300" y="195" font-size="13" fill="#202124" text-anchor="middle">登录注册</text>
+    <ellipse cx="300" cy="310" rx="90" ry="25"/><text x="300" y="315" font-size="13" fill="#202124" text-anchor="middle">上传资料</text>
+    <ellipse cx="300" cy="430" rx="90" ry="25"/><text x="300" y="435" font-size="13" fill="#202124" text-anchor="middle">溯源问答</text>
+    <ellipse cx="300" cy="550" rx="90" ry="25"/><text x="300" y="555" font-size="13" fill="#202124" text-anchor="middle">生成复习卡片</text>
+    <ellipse cx="520" cy="190" rx="92" ry="25"/><text x="520" y="195" font-size="13" fill="#202124" text-anchor="middle">确认DDL同步待办</text>
+    <ellipse cx="520" cy="310" rx="92" ry="25"/><text x="520" y="315" font-size="13" fill="#202124" text-anchor="middle">查看历史问答</text>
+    <ellipse cx="520" cy="430" rx="92" ry="25"/><text x="520" y="435" font-size="13" fill="#202124" text-anchor="middle">一键抹除数据</text>
+  </g>
+
+  <!-- ===== include / extend 用例（灰色虚线椭圆） ===== -->
+  <g fill="#F1F3F4" stroke="#5F6368" stroke-width="1.8" stroke-dasharray="5 3">
+    <ellipse cx="520" cy="550" rx="90" ry="25"/><text x="520" y="555" font-size="12" fill="#3C4043" text-anchor="middle">隐私声明勾选</text>
+    <ellipse cx="520" cy="670" rx="90" ry="25"/><text x="520" y="675" font-size="12" fill="#3C4043" text-anchor="middle">BM25 检索</text>
+    <ellipse cx="300" cy="670" rx="90" ry="25"/><text x="300" y="675" font-size="12" fill="#3C4043" text-anchor="middle">未命中拒答</text>
+  </g>
+
+  <!-- ===== 管理员用例（椭圆，绿） ===== -->
+  <g fill="#E6F4EA" stroke="#34A853" stroke-width="2">
+    <ellipse cx="820" cy="230" rx="90" ry="25"/><text x="820" y="235" font-size="13" fill="#202124" text-anchor="middle">用户管理</text>
+    <ellipse cx="820" cy="350" rx="90" ry="25"/><text x="820" y="355" font-size="13" fill="#202124" text-anchor="middle">资料管理</text>
+    <ellipse cx="820" cy="470" rx="90" ry="25"/><text x="820" y="475" font-size="13" fill="#202124" text-anchor="middle">问答监控</text>
+    <ellipse cx="820" cy="590" rx="90" ry="25"/><text x="820" y="595" font-size="13" fill="#202124" text-anchor="middle">系统配置</text>
+    <ellipse cx="820" cy="710" rx="90" ry="25"/><text x="820" y="715" font-size="13" fill="#202124" text-anchor="middle">统计看板</text>
+  </g>
+
+  <!-- ===== include / extend 标注（置于最上层） ===== -->
+  <g font-size="12" fill="#3C4043">
+    <rect x="421" y="468" width="66" height="18" rx="3" fill="#FAFAFA"/>
+    <text x="425" y="481">«include»</text>
+    <rect x="421" y="578" width="66" height="18" rx="3" fill="#FAFAFA"/>
+    <text x="425" y="591">«include»</text>
+    <rect x="236" y="588" width="62" height="18" rx="3" fill="#FAFAFA"/>
+    <text x="240" y="601">«extend»</text>
+  </g>
+
+  <!-- 图例 -->
+  <rect x="430" y="780" width="360" height="38" rx="8" fill="#F1F3F4" stroke="#9AA0A6" stroke-width="1"/>
+  <line x1="448" y1="799" x2="478" y2="799" stroke="#37474F" stroke-width="1.6"/>
+  <text x="484" y="804" font-size="12" fill="#3C4043">关联</text>
+  <line x1="540" y1="799" x2="570" y2="799" stroke="#5F6368" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#ucInc)"/>
+  <text x="576" y="804" font-size="12" fill="#3C4043">include / extend</text>
+  <text x="690" y="804" font-size="12" fill="#3C4043">椭圆=用例</text>
+
+  <text x="600" y="870" font-size="12" fill="#5F6368" text-anchor="middle">学生 7 项核心用例；管理员 5 项后台用例；隐私声明勾选、BM25 检索为被包含用例，未命中拒答为扩展用例</text>
+</svg>
