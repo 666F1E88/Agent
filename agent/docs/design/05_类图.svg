@@ -1,0 +1,346 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" font-family="'Microsoft YaHei','SimHei',sans-serif">
+  <rect x="0" y="0" width="1200" height="1000" fill="#FAFAFA"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1A73E8"/>
+  <rect x="0" y="56" width="1200" height="4" fill="#0B57D0"/>
+  <text x="28" y="39" font-size="22" font-weight="bold" fill="#FFFFFF">图 5  系统类图</text>
+  <text x="1172" y="39" font-size="14" fill="#D2E3FC" text-anchor="end">边界类 / 控制类 / 实体类 三层 · 任务搭子小队</text>
+
+  <defs>
+    <marker id="dep" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#5F6368"/></marker>
+    <marker id="gen" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto" markerUnits="strokeWidth"><path d="M0,1 L12,7 L0,13 z" fill="#FFFFFF" stroke="#37474F" stroke-width="1.4"/></marker>
+  </defs>
+
+  <!-- ===== 分层背景带 ===== -->
+  <rect x="30" y="88" width="1140" height="170" rx="10" fill="#F4F8FF" stroke="#D2E3FC"/>
+  <rect x="30" y="313" width="1140" height="170" rx="10" fill="#F4FBF6" stroke="#C8E6C9"/>
+  <rect x="30" y="528" width="1140" height="432" rx="10" fill="#FBF7FF" stroke="#E1BEE7"/>
+  <text x="42" y="82" font-size="13" font-weight="bold" fill="#1A73E8">« 边界类 Boundary »</text>
+  <text x="42" y="307" font-size="13" font-weight="bold" fill="#34A853">« 控制类 Control »</text>
+  <text x="42" y="522" font-size="13" font-weight="bold" fill="#9334E6">« 实体类 Entity »</text>
+
+  <!-- ================= 关系连线（先画线，类框覆盖端点） ================= -->
+  <!-- 依赖：边界 ..> 控制（虚线箭头） -->
+  <g stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 4" fill="none" marker-end="url(#dep)">
+    <line x1="137" y1="250" x2="137" y2="320"/>
+    <line x1="362" y1="250" x2="362" y2="320"/>
+    <line x1="587" y1="250" x2="587" y2="320"/>
+    <line x1="812" y1="250" x2="812" y2="320"/>
+    <line x1="1037" y1="250" x2="1037" y2="320"/>
+  </g>
+  <!-- 泛化：DdlConfirmView ─▷ UploadView（空心三角） -->
+  <line x1="587" y1="172" x2="557" y2="172" stroke="#37474F" stroke-width="1.8" marker-end="url(#gen)"/>
+  <text x="572" y="163" font-size="12" fill="#5F6368" text-anchor="middle">«泛化»</text>
+
+  <!-- 控制 -> 实体 关联（实线） -->
+  <g stroke="#7CB342" stroke-width="1.8" fill="none">
+    <line x1="137" y1="475" x2="170" y2="530"/>
+    <line x1="362" y1="475" x2="440" y2="530"/>
+    <line x1="587" y1="475" x2="440" y2="755"/>
+    <line x1="812" y1="475" x2="170" y2="755"/>
+    <line x1="1037" y1="475" x2="980" y2="530"/>
+  </g>
+
+  <!-- 实体间关联（实线，基数标注） -->
+  <g stroke="#9AA0A6" stroke-width="1.5" fill="none">
+    <line x1="170" y1="730" x2="440" y2="530"/>
+    <line x1="170" y1="730" x2="980" y2="530"/>
+    <line x1="170" y1="730" x2="170" y2="755"/>
+    <line x1="170" y1="730" x2="440" y2="755"/>
+    <line x1="170" y1="730" x2="710" y2="755"/>
+    <line x1="440" y1="730" x2="710" y2="530"/>
+    <line x1="440" y1="730" x2="980" y2="530"/>
+    <line x1="440" y1="730" x2="170" y2="755"/>
+    <line x1="440" y1="730" x2="440" y2="755"/>
+  </g>
+  <g font-size="12" fill="#5F6368">
+    <text x="300" y="620">1</text><text x="318" y="635">*</text>
+    <text x="555" y="610">1</text><text x="900" y="600">*</text>
+    <text x="158" y="745">1</text><text x="158" y="755">*</text>
+    <text x="290" y="750">1</text><text x="305" y="758">*</text>
+    <text x="430" y="750">1</text><text x="660" y="745">*</text>
+    <text x="560" y="620">1</text><text x="690" y="560">*</text>
+    <text x="700" y="620">1</text><text x="940" y="555">*</text>
+    <text x="300" y="748">1</text><text x="185" y="752">*</text>
+    <text x="425" y="742">1</text><text x="425" y="758">*</text>
+  </g>
+
+  <!-- ================= 边界类（5） ================= -->
+  <!-- AdminView -->
+  <g>
+    <rect x="40" y="95" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+    <rect x="40" y="95" width="195" height="30" rx="6" fill="#E8F0FE"/>
+    <text x="137" y="116" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">AdminView</text>
+    <line x1="40" y1="167" x2="235" y2="167" stroke="#DADCE0"/>
+    <text x="50" y="141" font-size="12" fill="#202124">- config: AdminConfig</text>
+    <text x="50" y="156" font-size="12" fill="#202124">- tab: str</text>
+    <text x="50" y="184" font-size="12" fill="#202124">+ renderDashboard(): void</text>
+    <text x="50" y="200" font-size="12" fill="#202124">+ manageUsers(): void</text>
+    <text x="50" y="216" font-size="12" fill="#202124">+ manageMaterials(): void</text>
+  </g>
+  <!-- UploadView -->
+  <g>
+    <rect x="265" y="95" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+    <rect x="265" y="95" width="195" height="30" rx="6" fill="#E8F0FE"/>
+    <text x="362" y="116" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">UploadView</text>
+    <line x1="265" y1="167" x2="460" y2="167" stroke="#DADCE0"/>
+    <text x="275" y="141" font-size="12" fill="#202124">- file: UploadedFile</text>
+    <text x="275" y="156" font-size="12" fill="#202124">- consentChecked: bool</text>
+    <text x="275" y="184" font-size="12" fill="#202124">+ render(): void</text>
+    <text x="275" y="200" font-size="12" fill="#202124">+ onUpload(): void</text>
+    <text x="275" y="216" font-size="12" fill="#202124">+ showParseProgress(): void</text>
+  </g>
+  <!-- DdlConfirmView -->
+  <g>
+    <rect x="490" y="95" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+    <rect x="490" y="95" width="195" height="30" rx="6" fill="#E8F0FE"/>
+    <text x="587" y="116" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">DdlConfirmView</text>
+    <line x1="490" y1="167" x2="685" y2="167" stroke="#DADCE0"/>
+    <text x="500" y="141" font-size="12" fill="#202124">- candidates: List[Page]</text>
+    <text x="500" y="156" font-size="12" fill="#202124">- selected: Page</text>
+    <text x="500" y="184" font-size="12" fill="#202124">+ showDialog(): bool</text>
+    <text x="500" y="200" font-size="12" fill="#202124">+ onConfirm(): void</text>
+    <text x="500" y="216" font-size="12" fill="#202124">+ highlightDdl(): void</text>
+  </g>
+  <!-- QaView -->
+  <g>
+    <rect x="715" y="95" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+    <rect x="715" y="95" width="195" height="30" rx="6" fill="#E8F0FE"/>
+    <text x="812" y="116" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">QaView</text>
+    <line x1="715" y1="167" x2="910" y2="167" stroke="#DADCE0"/>
+    <text x="725" y="141" font-size="12" fill="#202124">- question: str</text>
+    <text x="725" y="156" font-size="12" fill="#202124">- history: List[QARecord]</text>
+    <text x="725" y="184" font-size="12" fill="#202124">+ render(): void</text>
+    <text x="725" y="200" font-size="12" fill="#202124">+ displayAnswer(a, pages): void</text>
+    <text x="725" y="216" font-size="12" fill="#202124">+ showHistory(): void</text>
+  </g>
+  <!-- FlashcardView -->
+  <g>
+    <rect x="940" y="95" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+    <rect x="940" y="95" width="195" height="30" rx="6" fill="#E8F0FE"/>
+    <text x="1037" y="116" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">FlashcardView</text>
+    <line x1="940" y1="167" x2="1135" y2="167" stroke="#DADCE0"/>
+    <text x="950" y="141" font-size="12" fill="#202124">- cards: List[Flashcard]</text>
+    <text x="950" y="156" font-size="12" fill="#202124">- index: int</text>
+    <text x="950" y="184" font-size="12" fill="#202124">+ render(): void</text>
+    <text x="950" y="200" font-size="12" fill="#202124">+ flip(): void</text>
+    <text x="950" y="216" font-size="12" fill="#202124">+ markMastery(m): void</text>
+  </g>
+
+  <!-- ================= 控制类（5） ================= -->
+  <!-- AuthController -->
+  <g>
+    <rect x="40" y="320" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#34A853" stroke-width="2"/>
+    <rect x="40" y="320" width="195" height="30" rx="6" fill="#E6F4EA"/>
+    <text x="137" y="341" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">AuthController</text>
+    <line x1="40" y1="392" x2="235" y2="392" stroke="#DADCE0"/>
+    <text x="50" y="366" font-size="12" fill="#202124">- session: Session</text>
+    <text x="50" y="381" font-size="12" fill="#202124">- role: str</text>
+    <text x="50" y="409" font-size="12" fill="#202124">+ login(u, p): User</text>
+    <text x="50" y="425" font-size="12" fill="#202124">+ register(u, p): User</text>
+    <text x="50" y="441" font-size="12" fill="#202124">+ logout(): void</text>
+  </g>
+  <!-- MaterialController -->
+  <g>
+    <rect x="265" y="320" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#34A853" stroke-width="2"/>
+    <rect x="265" y="320" width="195" height="30" rx="6" fill="#E6F4EA"/>
+    <text x="362" y="341" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">MaterialController</text>
+    <line x1="265" y1="392" x2="460" y2="392" stroke="#DADCE0"/>
+    <text x="275" y="366" font-size="12" fill="#202124">- repo: MaterialRepo</text>
+    <text x="275" y="381" font-size="12" fill="#202124">- maxSize: int</text>
+    <text x="275" y="409" font-size="12" fill="#202124">+ ingest(file, user): Material</text>
+    <text x="275" y="425" font-size="12" fill="#202124">+ parse(file): List[Page]</text>
+    <text x="275" y="441" font-size="12" fill="#202124">+ desensitize(text): str</text>
+  </g>
+  <!-- DdlController -->
+  <g>
+    <rect x="490" y="320" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#34A853" stroke-width="2"/>
+    <rect x="490" y="320" width="195" height="30" rx="6" fill="#E6F4EA"/>
+    <text x="587" y="341" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">DdlController</text>
+    <line x1="490" y1="392" x2="685" y2="392" stroke="#DADCE0"/>
+    <text x="500" y="366" font-size="12" fill="#202124">- pattern: str</text>
+    <text x="500" y="381" font-size="12" fill="#202124">- mcpClient: MCPClient</text>
+    <text x="500" y="409" font-size="12" fill="#202124">+ detect(pages): List[Page]</text>
+    <text x="500" y="425" font-size="12" fill="#202124">+ markIsDdl(page): void</text>
+    <text x="500" y="441" font-size="12" fill="#202124">+ syncTodo(page, user): Todo</text>
+  </g>
+  <!-- QaController -->
+  <g>
+    <rect x="715" y="320" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#34A853" stroke-width="2"/>
+    <rect x="715" y="320" width="195" height="30" rx="6" fill="#E6F4EA"/>
+    <text x="812" y="341" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">QaController</text>
+    <line x1="715" y1="392" x2="910" y2="392" stroke="#DADCE0"/>
+    <text x="725" y="366" font-size="12" fill="#202124">- retriever: Retriever</text>
+    <text x="725" y="381" font-size="12" fill="#202124">- llm: LLMClient</text>
+    <text x="725" y="409" font-size="12" fill="#202124">+ ask(q, user): QARecord</text>
+    <text x="725" y="425" font-size="12" fill="#202124">+ retrievePages(q): List[Page]</text>
+    <text x="725" y="441" font-size="12" fill="#202124">+ buildPrompt(q, pages): str</text>
+  </g>
+  <!-- FlashcardController -->
+  <g>
+    <rect x="940" y="320" width="195" height="155" rx="6" fill="#FFFFFF" stroke="#34A853" stroke-width="2"/>
+    <rect x="940" y="320" width="195" height="30" rx="6" fill="#E6F4EA"/>
+    <text x="1037" y="341" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">FlashcardController</text>
+    <line x1="940" y1="392" x2="1135" y2="392" stroke="#DADCE0"/>
+    <text x="950" y="366" font-size="12" fill="#202124">- llm: LLMClient</text>
+    <text x="950" y="381" font-size="12" fill="#202124">- count: int</text>
+    <text x="950" y="409" font-size="12" fill="#202124">+ generate(m): List[Flashcard]</text>
+    <text x="950" y="425" font-size="12" fill="#202124">+ parseJSON(s): List</text>
+    <text x="950" y="441" font-size="12" fill="#202124">+ save(cards): void</text>
+  </g>
+
+  <!-- ================= 实体类（8） ================= -->
+  <!-- User -->
+  <g>
+    <rect x="60" y="530" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="60" y="530" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="170" y="551" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">User</text>
+    <line x1="60" y1="696" x2="280" y2="696" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="70" y="576">+ «PK» user_id: int</text>
+      <text x="70" y="589">+ username: str</text>
+      <text x="70" y="602">+ password_hash: str</text>
+      <text x="70" y="615">+ nickname: str</text>
+      <text x="70" y="628">+ role: str</text>
+      <text x="70" y="641">+ created_at: datetime</text>
+      <text x="70" y="654">+ status: int</text>
+    </g>
+    <text x="70" y="712" font-size="12" fill="#202124">+ checkPassword(p): bool</text>
+    <text x="70" y="726" font-size="12" fill="#202124">+ isAdmin(): bool</text>
+  </g>
+  <!-- Material -->
+  <g>
+    <rect x="330" y="530" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="330" y="530" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="440" y="551" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">Material</text>
+    <line x1="330" y1="696" x2="550" y2="696" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="340" y="574">+ «PK» material_id: int</text>
+      <text x="340" y="587">+ «FK» user_id: int</text>
+      <text x="340" y="600">+ filename: str</text>
+      <text x="340" y="613">+ file_type: str</text>
+      <text x="340" y="626">+ file_size: int</text>
+      <text x="340" y="639">+ page_count: int</text>
+      <text x="340" y="652">+ storage_path: str</text>
+      <text x="340" y="665">+ sha256: str</text>
+      <text x="340" y="678">+ upload_time: datetime</text>
+      <text x="340" y="691">+ parse_status: str</text>
+    </g>
+    <text x="340" y="712" font-size="12" fill="#202124">+ getPage(n): Page</text>
+    <text x="340" y="726" font-size="12" fill="#202124">+ getText(): str</text>
+  </g>
+  <!-- Page -->
+  <g>
+    <rect x="600" y="530" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="600" y="530" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="710" y="551" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">Page</text>
+    <line x1="600" y1="696" x2="820" y2="696" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="610" y="576">+ «PK» page_id: int</text>
+      <text x="610" y="589">+ «FK» material_id: int</text>
+      <text x="610" y="602">+ page_num: int</text>
+      <text x="610" y="615">+ text_content: text</text>
+      <text x="610" y="628">+ is_ddl: bool</text>
+      <text x="610" y="641">+ char_count: int</text>
+    </g>
+    <text x="610" y="712" font-size="12" fill="#202124">+ getCharCount(): int</text>
+    <text x="610" y="726" font-size="12" fill="#202124">+ isDdl(): bool</text>
+  </g>
+  <!-- Flashcard -->
+  <g>
+    <rect x="870" y="530" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="870" y="530" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="980" y="551" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">Flashcard</text>
+    <line x1="870" y1="696" x2="1090" y2="696" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="880" y="574">+ «PK» card_id: int</text>
+      <text x="880" y="587">+ «FK» user_id: int</text>
+      <text x="880" y="600">+ «FK» material_id: int</text>
+      <text x="880" y="613">+ question: str</text>
+      <text x="880" y="626">+ answer: str</text>
+      <text x="880" y="639">+ source_page: int</text>
+      <text x="880" y="652">+ mastery: int</text>
+      <text x="880" y="665">+ created_at: datetime</text>
+    </g>
+    <text x="880" y="712" font-size="12" fill="#202124">+ review(ok): void</text>
+    <text x="880" y="726" font-size="12" fill="#202124">+ getSource(): int</text>
+  </g>
+
+  <!-- QARecord -->
+  <g>
+    <rect x="60" y="755" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="60" y="755" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="170" y="776" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">QARecord</text>
+    <line x1="60" y1="921" x2="280" y2="921" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="70" y="801">+ «PK» qa_id: int</text>
+      <text x="70" y="814">+ «FK» user_id: int</text>
+      <text x="70" y="827">+ «FK» material_id: int</text>
+      <text x="70" y="840">+ question: str</text>
+      <text x="70" y="853">+ answer: str</text>
+      <text x="70" y="866">+ source_pages: JSON</text>
+      <text x="70" y="879">+ created_at: datetime</text>
+    </g>
+    <text x="70" y="937" font-size="12" fill="#202124">+ toJSON(): str</text>
+    <text x="70" y="951" font-size="12" fill="#202124">+ getPages(): List</text>
+  </g>
+  <!-- Todo -->
+  <g>
+    <rect x="330" y="755" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="330" y="755" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="440" y="776" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">Todo</text>
+    <line x1="330" y1="921" x2="550" y2="921" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="340" y="799">+ «PK» id: int</text>
+      <text x="340" y="812">+ «FK» user_id: int</text>
+      <text x="340" y="825">+ title: str</text>
+      <text x="340" y="838">+ done: bool</text>
+      <text x="340" y="851">+ priority: int</text>
+      <text x="340" y="864">+ duration: int</text>
+      <text x="340" y="877">+ deadline: datetime</text>
+      <text x="340" y="890">+ created_at: datetime</text>
+      <text x="340" y="903">+ «FK» source_material_id</text>
+      <text x="340" y="916">+ source_page: int</text>
+    </g>
+    <text x="340" y="937" font-size="12" fill="#202124">+ complete(): void</text>
+    <text x="340" y="951" font-size="12" fill="#202124">+ isOverdue(): bool</text>
+  </g>
+  <!-- Consent -->
+  <g>
+    <rect x="600" y="755" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="600" y="755" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="710" y="776" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">Consent</text>
+    <line x1="600" y1="921" x2="820" y2="921" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="610" y="801">+ «PK» consent_id: int</text>
+      <text x="610" y="814">+ «FK» user_id: int</text>
+      <text x="610" y="827">+ «FK» material_id: int</text>
+      <text x="610" y="840">+ version: str</text>
+      <text x="610" y="853">+ consent_time: datetime</text>
+    </g>
+    <text x="610" y="937" font-size="12" fill="#202124">+ isValid(): bool</text>
+    <text x="610" y="951" font-size="12" fill="#202124">+ toRecord(): str</text>
+  </g>
+  <!-- AdminConfig -->
+  <g>
+    <rect x="870" y="755" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2"/>
+    <rect x="870" y="755" width="220" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="980" y="776" font-size="13" font-weight="bold" fill="#202124" text-anchor="middle">AdminConfig</text>
+    <line x1="870" y1="921" x2="1090" y2="921" stroke="#DADCE0"/>
+    <g font-size="12" fill="#202124">
+      <text x="880" y="801">+ «PK» config_key: str</text>
+      <text x="880" y="814">+ config_value: str</text>
+      <text x="880" y="827">+ updated_at: datetime</text>
+    </g>
+    <text x="880" y="937" font-size="12" fill="#202124">+ getValue(): str</text>
+    <text x="880" y="951" font-size="12" fill="#202124">+ update(v): void</text>
+  </g>
+
+  <!-- 图例 -->
+  <g font-size="12" fill="#3C4043">
+    <line x1="500" y1="986" x2="540" y2="986" stroke="#5F6368" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#dep)"/><text x="545" y="990">依赖</text>
+    <line x1="590" y1="986" x2="630" y2="986" stroke="#7CB342" stroke-width="1.8"/><text x="635" y="990">关联</text>
+    <line x1="680" y1="986" x2="720" y2="986" stroke="#37474F" stroke-width="1.8" marker-end="url(#gen)"/><text x="726" y="990">泛化</text>
+    <text x="790" y="990" font-size="12" fill="#5F6368">«PK»主键  «FK»外键</text>
+  </g>
+  <text x="30" y="990" font-size="12" fill="#5F6368">三层类结构：边界视图 → 控制逻辑 → 实体数据</text>
+</svg>

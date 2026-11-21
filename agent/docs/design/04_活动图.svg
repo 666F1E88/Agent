@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" font-family="'Microsoft YaHei','SimHei',sans-serif">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="1200" height="1000" fill="#FAFAFA"/>
+
+  <!-- 标题栏 -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1A73E8"/>
+  <rect x="0" y="56" width="1200" height="4" fill="#0B57D0"/>
+  <text x="28" y="39" font-size="22" font-weight="bold" fill="#FFFFFF">图 4  业务活动图（泳道）</text>
+  <text x="1172" y="39" font-size="14" fill="#D2E3FC" text-anchor="end">上传→解析→问答/卡片/DDL 主流程</text>
+
+  <defs>
+    <marker id="actArrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5F6368"/>
+    </marker>
+  </defs>
+
+  <!-- ===== 泳道背景 ===== -->
+  <rect x="60" y="127" width="210" height="848" fill="#FFFFFF"/>
+  <rect x="270" y="127" width="210" height="848" fill="#F7F9FC"/>
+  <rect x="480" y="127" width="210" height="848" fill="#FFFFFF"/>
+  <rect x="690" y="127" width="210" height="848" fill="#F7F9FC"/>
+  <rect x="900" y="127" width="210" height="848" fill="#FFFFFF"/>
+  <g stroke="#90A4AE" stroke-width="1">
+    <line x1="270" y1="85" x2="270" y2="975"/>
+    <line x1="480" y1="85" x2="480" y2="975"/>
+    <line x1="690" y1="85" x2="690" y2="975"/>
+    <line x1="900" y1="85" x2="900" y2="975"/>
+    <rect x="60" y="85" width="1050" height="890" fill="none" stroke="#90A4AE" stroke-width="1.2"/>
+  </g>
+
+  <!-- ===== 泳道头 ===== -->
+  <rect x="60" y="85" width="210" height="42" rx="4" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="165" y="113" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">用户</text>
+  <rect x="270" y="85" width="210" height="42" rx="4" fill="#E6F4EA" stroke="#34A853" stroke-width="1.5"/>
+  <text x="375" y="113" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">前端</text>
+  <rect x="480" y="85" width="210" height="42" rx="4" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.5"/>
+  <text x="585" y="113" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">后端</text>
+  <rect x="690" y="85" width="210" height="42" rx="4" fill="#F3E8FD" stroke="#9334E6" stroke-width="1.5"/>
+  <text x="795" y="113" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">LLM</text>
+  <rect x="900" y="85" width="210" height="42" rx="4" fill="#E0F7FA" stroke="#00ACC1" stroke-width="1.5"/>
+  <text x="1005" y="113" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">数据库</text>
+
+  <!-- ===== 活动节点定义复用样式 ===== -->
+  <!-- 起始 -->
+  <circle cx="165" cy="140" r="9" fill="#37474F"/>
+  <!-- 主流程 -->
+  <g font-size="13" fill="#202124" text-anchor="middle">
+    <rect x="80" y="155" width="170" height="42" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.8"/><text x="165" y="182">选择上传 PDF/PPTX</text>
+    <rect x="290" y="155" width="170" height="42" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="1.8"/><text x="375" y="182">接收文件 · 正则脱敏</text>
+    <rect x="500" y="225" width="170" height="42" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.8"/><text x="585" y="252">按页提取纯文本</text>
+    <rect x="290" y="360" width="170" height="42" rx="10" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.8"/><text x="375" y="387">提示解析失败</text>
+    <rect x="920" y="360" width="170" height="42" rx="10" fill="#E0F7FA" stroke="#00ACC1" stroke-width="1.8"/><text x="1005" y="387">写入 pages 表</text>
+  </g>
+
+  <!-- 判断节点 D1 -->
+  <polygon points="585,273 632,305 585,337 538,305" fill="#FFF4E5" stroke="#F9AB00" stroke-width="2"/>
+  <text x="585" y="309" font-size="12" fill="#202124" text-anchor="middle">解析成功?</text>
+
+  <!-- 分叉点 -->
+  <circle cx="585" cy="425" r="7" fill="#37474F"/>
+
+  <!-- 分支① 问答 -->
+  <g font-size="13" fill="#202124" text-anchor="middle">
+    <rect x="80" y="450" width="170" height="42" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.8"/><text x="165" y="477">输入问题</text>
+    <rect x="290" y="450" width="170" height="42" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="1.8"/><text x="375" y="477">调用 ask_course</text>
+    <rect x="500" y="450" width="170" height="42" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.8"/><text x="585" y="477">BM25 检索相关页</text>
+    <rect x="920" y="450" width="170" height="42" rx="10" fill="#E0F7FA" stroke="#00ACC1" stroke-width="1.8"/><text x="1005" y="477">读取 pages 表</text>
+
+    <rect x="290" y="575" width="170" height="42" rx="10" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.8"/><text x="375" y="602">未命中拒答</text>
+    <rect x="80" y="575" width="170" height="42" rx="10" fill="#F1F3F4" stroke="#5F6368" stroke-width="1.8"/><text x="165" y="602">展示拒答</text>
+    <rect x="500" y="575" width="170" height="42" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.8"/><text x="585" y="602">拼接 Prompt</text>
+    <rect x="710" y="575" width="170" height="42" rx="10" fill="#F3E8FD" stroke="#9334E6" stroke-width="1.8"/><text x="795" y="602">chat 生成回答</text>
+
+    <rect x="500" y="635" width="170" height="42" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.8"/><text x="585" y="662">解析引用页码</text>
+    <rect x="920" y="635" width="170" height="42" rx="10" fill="#E0F7FA" stroke="#00ACC1" stroke-width="1.8"/><text x="1005" y="662">写入 QARecord</text>
+    <rect x="80" y="635" width="170" height="42" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.8"/><text x="165" y="662">展示带页码回答</text>
+  </g>
+
+  <!-- 判断节点 D2 -->
+  <polygon points="585,505 632,535 585,565 538,535" fill="#FFF4E5" stroke="#F9AB00" stroke-width="2"/>
+  <text x="585" y="539" font-size="12" fill="#202124" text-anchor="middle">命中相关页?</text>
+
+  <!-- 分支② 卡片 -->
+  <g font-size="13" fill="#202124" text-anchor="middle">
+    <rect x="80" y="700" width="170" height="42" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.8"/><text x="165" y="727">点击生成卡片</text>
+    <rect x="290" y="700" width="170" height="42" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="1.8"/><text x="375" y="727">调用 make_flashcards</text>
+    <rect x="500" y="700" width="170" height="42" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.8"/><text x="585" y="727">组装考点 Prompt</text>
+    <rect x="710" y="700" width="170" height="42" rx="10" fill="#F3E8FD" stroke="#9334E6" stroke-width="1.8"/><text x="795" y="727">产出 JSON 问答对</text>
+    <rect x="920" y="760" width="170" height="42" rx="10" fill="#E0F7FA" stroke="#00ACC1" stroke-width="1.8"/><text x="1005" y="787">写入 Flashcard</text>
+    <rect x="290" y="760" width="170" height="42" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="1.8"/><text x="375" y="787">翻转卡片展示</text>
+  </g>
+
+  <!-- 分支③ DDL -->
+  <g font-size="13" fill="#202124" text-anchor="middle">
+    <rect x="500" y="825" width="170" height="42" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.8"/><text x="585" y="852">正则识别 DDL 日期</text>
+    <rect x="290" y="825" width="170" height="42" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="1.8"/><text x="375" y="852">弹出 DDL 确认窗</text>
+    <rect x="80" y="885" width="170" height="42" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.8"/><text x="165" y="912">确认同步待办</text>
+    <rect x="500" y="885" width="170" height="42" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1.8"/><text x="585" y="912">调用 sync_ddl_to_todo</text>
+    <rect x="920" y="885" width="170" height="42" rx="10" fill="#E0F7FA" stroke="#00ACC1" stroke-width="1.8"/><text x="1005" y="912">写入 Todo(is_ddl)</text>
+  </g>
+
+  <!-- 结束 -->
+  <circle cx="1005" cy="958" r="9" fill="none" stroke="#37474F" stroke-width="3"/>
+  <circle cx="1005" cy="958" r="4" fill="#37474F"/>
+
+  <!-- ===== 控制流连线 ===== -->
+  <g fill="none" stroke="#5F6368" stroke-width="1.8" marker-end="url(#actArrow)">
+    <!-- 主流程 -->
+    <line x1="165" y1="149" x2="165" y2="155"/>
+    <line x1="250" y1="176" x2="290" y2="176"/>
+    <line x1="460" y1="176" x2="500" y2="246"/>
+    <line x1="585" y1="267" x2="585" y2="273"/>
+    <!-- D1 否/是 -->
+    <line x1="538" y1="305" x2="460" y2="381"/>
+    <line x1="632" y1="305" x2="920" y2="381"/>
+    <!-- 入库 -> 分叉 -->
+    <line x1="1005" y1="402" x2="592" y2="425"/>
+    <!-- 分叉 -> 三路入口 -->
+    <line x1="580" y1="428" x2="165" y2="450" stroke="#1A73E8"/>
+    <line x1="585" y1="432" x2="165" y2="700" stroke="#9334E6"/>
+    <line x1="585" y1="432" x2="585" y2="825" stroke="#EA4335"/>
+
+    <!-- 分支① 入口链 -->
+    <line x1="250" y1="471" x2="290" y2="471"/>
+    <line x1="460" y1="471" x2="500" y2="471"/>
+    <line x1="670" y1="471" x2="920" y2="471"/>
+    <line x1="585" y1="492" x2="585" y2="505"/>
+    <!-- D2 否 -> 拒答 -->
+    <line x1="538" y1="535" x2="460" y2="596"/>
+    <line x1="290" y1="596" x2="250" y2="596"/>
+    <!-- D2 是 -> 拼Prompt -> LLM -->
+    <line x1="632" y1="535" x2="500" y2="596"/>
+    <line x1="670" y1="596" x2="710" y2="596"/>
+    <!-- LLM -> 解析页码 -->
+    <line x1="795" y1="617" x2="670" y2="656"/>
+    <!-- 解析页码 -> DB / 用户 -->
+    <line x1="670" y1="656" x2="920" y2="656"/>
+    <line x1="500" y1="677" x2="250" y2="656"/>
+
+    <!-- 分支② 链 -->
+    <line x1="250" y1="721" x2="290" y2="721"/>
+    <line x1="460" y1="721" x2="500" y2="721"/>
+    <line x1="670" y1="721" x2="710" y2="721"/>
+    <line x1="795" y1="742" x2="460" y2="781"/>
+    <line x1="795" y1="742" x2="1005" y2="760"/>
+
+    <!-- 分支③ 链 -->
+    <line x1="500" y1="846" x2="460" y2="846"/>
+    <line x1="375" y1="867" x2="165" y2="885"/>
+    <line x1="250" y1="906" x2="500" y2="906"/>
+    <line x1="670" y1="906" x2="920" y2="906"/>
+    <line x1="1005" y1="927" x2="1005" y2="949"/>
+  </g>
+
+  <!-- 判断分支标签 -->
+  <text x="498" y="345" font-size="12" font-weight="bold" fill="#EA4335">否</text>
+  <text x="770" y="350" font-size="12" font-weight="bold" fill="#34A853">是</text>
+  <text x="498" y="520" font-size="12" font-weight="bold" fill="#EA4335">否</text>
+  <text x="655" y="565" font-size="12" font-weight="bold" fill="#34A853">是</text>
+
+  <!-- 三路分支标注 -->
+  <text x="60" y="443" font-size="12" font-weight="bold" fill="#1A73E8">① 溯源问答</text>
+  <text x="60" y="693" font-size="12" font-weight="bold" fill="#9334E6">② 复习卡片</text>
+  <text x="60" y="818" font-size="12" font-weight="bold" fill="#EA4335">③ DDL 联动</text>
+
+  <text x="600" y="992" font-size="12" fill="#5F6368" text-anchor="middle">圆角矩形=活动 · 菱形=判断 · 实心圆=起点/终点 · 箭头=控制流；未命中命中判断的"否"分支进入拒答</text>
+</svg>
