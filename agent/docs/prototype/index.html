@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskMate 课程资料第二大脑 · 高保真原型</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ============ 顶部固定 Header ============ -->
+  <header class="app-header">
+    <div class="brand">
+      <!-- Logo：用 CSS + SVG 绘制的大脑/节点图形 -->
+      <span class="brand-logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="30" height="30">
+          <rect x="1" y="1" width="30" height="30" rx="9" fill="url(#logoGrad)"/>
+          <path d="M10 20c-2.5 0-4-2-4-4.5S7.8 11 10 11c.6-2.3 2.8-4 5.3-4 2.9 0 5.2 2.1 5.7 4.9 2 .6 3.5 2.4 3.5 4.6 0 2.6-2.1 4.5-4.7 4.5H10z" fill="#fff" opacity="0.95"/>
+          <circle cx="12" cy="16" r="1.6" fill="#4F46E5"/>
+          <circle cx="18" cy="14" r="1.6" fill="#4F46E5"/>
+          <circle cx="17" cy="19" r="1.6" fill="#4F46E5"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6366F1"/>
+              <stop offset="1" stop-color="#4F46E5"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <strong>TaskMate</strong>
+        <span class="brand-sub">课程资料第二大脑</span>
+      </span>
+    </div>
+
+    <div class="header-team">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      任务搭子小队
+    </div>
+
+    <div class="header-right">
+      <!-- 前台 / 后台 模式切换 -->
+      <div class="mode-switch" role="tablist" aria-label="模式切换">
+        <button class="mode-btn active" data-mode="frontend" role="tab" aria-selected="true">前台应用</button>
+        <button class="mode-btn" data-mode="admin" role="tab" aria-selected="false">后台管理</button>
+      </div>
+      <!-- 模拟用户头像 -->
+      <div class="avatar" title="钟楚楠（学生）">
+        <span>钟</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 主体：侧边栏 + 内容区 ============ -->
+  <div class="app-body">
+    <aside class="sidebar">
+      <!-- 前台导航分组 -->
+      <nav class="nav-group" data-group="frontend">
+        <div class="nav-group-title">前台应用 · 学生端</div>
+        <a class="nav-item active" data-page="p1" href="#p1">
+          <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+          <span>登录 / 注册</span>
+        </a>
+        <a class="nav-item" data-page="p2" href="#p2">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>工作台</span>
+        </a>
+        <a class="nav-item" data-page="p3" href="#p3">
+          <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+          <span>上传资料</span>
+        </a>
+        <a class="nav-item" data-page="p4" href="#p4">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg>
+          <span>解析预览</span>
+        </a>
+        <a class="nav-item" data-page="p5" href="#p5">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>
+          <span>溯源问答</span>
+        </a>
+        <a class="nav-item" data-page="p6" href="#p6">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="14" height="14" rx="2" transform="rotate(-8 11 11)"/><rect x="7" y="7" width="14" height="14" rx="2" transform="rotate(6 14 14)"/></svg>
+          <span>复习卡片</span>
+        </a>
+        <a class="nav-item" data-page="p7" href="#p7">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15l2 2 4-4"/></svg>
+          <span>DDL 待办</span>
+        </a>
+        <a class="nav-item" data-page="p8" href="#p8">
+          <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>
+          <span>历史问答</span>
+        </a>
+      </nav>
+
+      <!-- 后台导航分组 -->
+      <nav class="nav-group" data-group="admin" hidden>
+        <div class="nav-group-title">后台管理 · 管理端</div>
+        <a class="nav-item active" data-page="p9" href="#p9">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          <span>管理首页</span>
+        </a>
+        <a class="nav-item" data-page="p10" href="#p10">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M17 11h6M20 8v6"/></svg>
+          <span>用户管理</span>
+        </a>
+        <a class="nav-item" data-page="p11" href="#p11">
+          <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>资料管理</span>
+        </a>
+        <a class="nav-item" data-page="p12" href="#p12">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>问答监控</span>
+        </a>
+        <a class="nav-item" data-page="p13" href="#p13">
+          <svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+          <span>系统配置</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-line"></div>
+        <div class="sidebar-version">TaskMate Prototype v2.0</div>
+      </div>
+    </aside>
+
+    <main class="content" id="content">
+
+      <!-- ==================== P1 登录 / 注册 ==================== -->
+      <section class="page active" id="p1" data-title="登录 / 注册">
+        <div class="auth-wrap">
+          <div class="auth-card">
+            <div class="auth-head">
+              <div class="auth-logo">
+                <svg viewBox="0 0 32 32" width="40" height="40"><rect x="1" y="1" width="30" height="30" rx="9" fill="url(#logoGrad2)"/><path d="M10 20c-2.5 0-4-2-4-4.5S7.8 11 10 11c.6-2.3 2.8-4 5.3-4 2.9 0 5.2 2.1 5.7 4.9 2 .6 3.5 2.4 3.5 4.6 0 2.6-2.1 4.5-4.7 4.5H10z" fill="#fff" opacity="0.95"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#4F46E5"/></linearGradient></defs></svg>
+              </div>
+              <h1>欢迎使用 TaskMate</h1>
+              <p>把课程资料变成你的第二大脑</p>
+            </div>
+            <div class="auth-tabs">
+              <button class="auth-tab active" data-auth="login">登录</button>
+              <button class="auth-tab" data-auth="register">注册</button>
+            </div>
+            <form class="auth-form" onsubmit="return false;">
+              <label class="field-label">用户名 / 学号</label>
+              <div class="input-with-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                <input type="text" value="3224004271" placeholder="请输入学号或用户名" />
+              </div>
+              <label class="field-label">密码</label>
+              <div class="input-with-icon">
+                <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                <input type="password" value="demo123456" id="authPwd" placeholder="请输入密码" />
+              </div>
+              <!-- A7：隐私声明勾选项，未勾选时上传按钮置灰（见 P3 / app.js） -->
+              <label class="consent-row" for="authConsent">
+                <input type="checkbox" id="authConsent" checked />
+                <span>我已阅读并同意 <a href="#p3">《隐私声明》</a>：本工具不会将您的资料用于模型训练</span>
+              </label>
+              <button class="btn btn-primary btn-block" id="authSubmit">登 录</button>
+            </form>
+            <div class="auth-foot">任务搭子小队 · 软件工程课程项目</div>
+          </div>
+          <div class="auth-aside">
+            <h2>从「提醒做」到「帮忙做」</h2>
+            <ul class="feature-list">
+              <li><span class="fl-ico">01</span><div><b>带页码溯源</b><p>每个回答强制标注课件页码，拒绝幻觉，答案有据可查。</p></div></li>
+              <li><span class="fl-ico">02</span><div><b>DDL 一键同步</b><p>自动识别作业截止时间，确认后同步回待办，形成闭环。</p></div></li>
+              <li><span class="fl-ico">03</span><div><b>隐私优先</b><p>上传前正则脱敏 + 免训练 API，数据还能一键抹除。</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P2 工作台首页 ==================== -->
+      <section class="page" id="p2" data-title="工作台">
+        <div class="page-head">
+          <div><h1 class="page-title">工作台</h1><p class="page-desc">你好，钟楚楠。今天也来把课件整理成知识吧。</p></div>
+          <button class="btn btn-primary" data-go="p3">
+            <svg viewBox="0 0 24 24" class="btn-ico"><path d="M12 5v14M5 12h14"/></svg>上传新资料
+          </button>
+        </div>
+
+        <!-- 统计卡 -->
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-ico ico-indigo"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+            <div class="stat-info"><div class="stat-label">已上传资料</div><div class="stat-num">12<span>份</span></div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-ico ico-violet"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="stat-info"><div class="stat-label">问答次数</div><div class="stat-num">86<span>次</span></div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-ico ico-blue"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="14" height="14" rx="2"/><rect x="7" y="7" width="14" height="14" rx="2"/></svg></div>
+            <div class="stat-info"><div class="stat-label">复习卡片</div><div class="stat-num">34<span>张</span></div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-ico ico-orange"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+            <div class="stat-info"><div class="stat-label">待办 DDL</div><div class="stat-num">5<span>项</span></div></div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <!-- 最近资料 -->
+          <div class="card">
+            <div class="card-head"><h3>最近资料</h3><a class="link" data-go="p11">查看全部 →</a></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>文件名</th><th>类型</th><th>页数</th><th>上传时间</th><th>状态</th></tr></thead>
+                <tbody>
+                  <tr><td><span class="file-ico pptx">P</span>软件工程-第3章-需求分析.pptx</td><td>PPTX</td><td>24</td><td>11-18 14:32</td><td><span class="badge badge-success">解析完成</span></td></tr>
+                  <tr><td><span class="file-ico pdf">P</span>软件测试基础-单元测试.pdf</td><td>PDF</td><td>18</td><td>11-16 09:15</td><td><span class="badge badge-success">解析完成</span></td></tr>
+                  <tr><td><span class="file-ico pptx">P</span>UML建模与类图.pptx</td><td>PPTX</td><td>32</td><td>11-14 20:08</td><td><span class="badge badge-success">解析完成</span></td></tr>
+                  <tr><td><span class="file-ico pdf">P</span>数据库设计范式.pdf</td><td>PDF</td><td>15</td><td>11-12 11:40</td><td><span class="badge badge-success">解析完成</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- 快捷入口九宫格 -->
+          <div class="card">
+            <div class="card-head"><h3>快捷入口</h3></div>
+            <div class="quick-grid">
+              <button data-go="p3"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3h16v-3"/></svg><span>上传资料</span></button>
+              <button data-go="p5"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>溯源问答</span></button>
+              <button data-go="p6"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="14" height="14" rx="2"/><rect x="7" y="7" width="14" height="14" rx="2"/></svg><span>生成卡片</span></button>
+              <button data-go="p7"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>DDL 待办</span></button>
+              <button data-go="p8"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M12 7v5l3 2"/></svg><span>历史问答</span></button>
+              <button data-go="p4"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16h16V8z"/><path d="M14 2v6h6M8 13h8"/></svg><span>解析预览</span></button>
+              <button data-go="p11"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9H3z"/></svg><span>资料管理</span></button>
+              <button data-go="p13"><svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"/></svg><span>系统配置</span></button>
+              <button data-go="p1"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg><span>使用帮助</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P3 上传资料 ==================== -->
+      <section class="page" id="p3" data-title="上传资料">
+        <div class="page-head">
+          <div><h1 class="page-title">上传资料</h1><p class="page-desc">上传课件，系统自动脱敏、按页提取文本并建立索引。</p></div>
+        </div>
+        <!-- 脱敏提示文案 -->
+        <div class="notice">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div><b>数据安全提示</b><p>上传前将自动对学号、手机号、邮箱等敏感信息进行正则脱敏处理；全程使用免训练 API，原始文件不会用于模型训练，你可随时在设置中一键抹除数据。</p></div>
+        </div>
+        <div class="upload-layout">
+          <div class="card upload-card">
+            <!-- 拖拽上传区 -->
+            <div class="dropzone" id="dropzone">
+              <svg viewBox="0 0 24 24" class="dz-ico"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+              <div class="dz-title">将文件拖拽到此处，或 <span class="dz-link">点击选择文件</span></div>
+              <div class="dz-desc">仅支持 PDF / PPTX 格式，单个文件不超过 10MB</div>
+              <input type="file" id="fileInput" accept=".pdf,.pptx" hidden />
+            </div>
+            <!-- 解析进度条动画 -->
+            <div class="parse-panel" id="parsePanel" hidden>
+              <div class="parse-file"><span class="file-ico pdf">P</span><span id="parseFileName">软件工程-第3章-需求分析.pptx</span><span class="badge badge-info" id="parseStatus">解析中</span></div>
+              <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+              <div class="parse-meta"><span id="parseStep">正在按页提取纯文本…</span><span id="parsePercent">0%</span></div>
+            </div>
+            <label class="consent-row upload-consent" for="uploadConsent">
+              <input type="checkbox" id="uploadConsent" />
+              <span>我已阅读并同意隐私声明，本工具不会将您的资料用于模型训练</span>
+            </label>
+            <button class="btn btn-primary btn-block" id="uploadBtn" disabled>
+              <svg viewBox="0 0 24 24" class="btn-ico"><path d="M12 16V4M7 9l5-5 5 5"/></svg>开始上传并解析
+            </button>
+          </div>
+          <div class="card guide-card">
+            <div class="card-head"><h3>上传后会发生什么</h3></div>
+            <ol class="step-list">
+              <li><span>1</span><div><b>正则脱敏</b><p>识别并替换学号、手机号等个人信息。</p></div></li>
+              <li><span>2</span><div><b>按页提取文本</b><p>PyPDF2 / python-pptx 逐页解析，保留页码。</p></div></li>
+              <li><span>3</span><div><b>BM25 建索引</b><p>为溯源问答和卡片生成建立检索索引。</p></div></li>
+              <li><span>4</span><div><b>识别 DDL</b><p>匹配日期句式，标记可同步的截止时间。</p></div></li>
+            </ol>
+            <div class="guide-tip">支持格式：.pdf / .pptx　|　大小上限：10MB</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P4 解析预览 ==================== -->
+      <section class="page" id="p4" data-title="解析预览">
+        <div class="page-head">
+          <div><h1 class="page-title">解析预览</h1><p class="page-desc">软件工程-第3章-需求分析.pptx · 共 24 页 · 解析完成</p></div>
+          <button class="btn btn-ghost" data-go="p3">重新上传</button>
+        </div>
+        <div class="preview-layout">
+          <!-- 页码目录 -->
+          <div class="card page-index">
+            <div class="card-head"><h3>页面目录</h3></div>
+            <div class="page-index-list">
+              <a class="page-index-item active" href="#preview-p3">第 3 页 <span>需求分析任务</span></a>
+              <a class="page-index-item" href="#preview-p8">第 8 页 <span>课程安排与 DDL</span></a>
+              <a class="page-index-item" href="#preview-p12">第 12 页 <span>软件测试概述</span></a>
+            </div>
+            <div class="legend"><span class="legend-highlight"></span>黄色高亮 = 识别到的 DDL 句子</div>
+          </div>
+          <!-- 文本预览 -->
+          <div class="card preview-doc">
+            <div class="doc-page" id="preview-p3">
+              <div class="doc-page-tag">--- 第 3 页 ---</div>
+              <h2>3.1 需求分析的任务</h2>
+              <p>需求分析是软件定义时期的最后一个阶段，其基本任务是回答"系统必须做什么"这个问题。需求分析阶段要确定系统必须完成哪些工作，也就是对目标系统提出完整、准确、清晰、具体的要求。</p>
+              <p>主要任务包括：确定系统的综合要求（功能需求、性能需求、可靠性和可用性需求、出错处理需求、接口需求、约束）；分析系统的数据要求；导出系统的逻辑模型；修正系统开发计划。</p>
+              <p>需求获取常用方法包括：访谈、面向数据流自顶向下逐步求精、简易的应用规格说明技术、快速建立软件原型等。</p>
+            </div>
+            <div class="doc-page" id="preview-p8">
+              <div class="doc-page-tag">--- 第 8 页 ---</div>
+              <h2>3.4 课程安排与考核方式</h2>
+              <p>本课程采用平时作业 + 团队项目 + 期末考试的综合考核方式。平时作业共 4 次，团队项目分两次团队作业提交。</p>
+              <p class="ddl-line">请在 2026-11-22 23:59 前提交第二次团队作业，内容包括原型设计、概要设计（UML 图与数据库设计）及说明书。</p>
+              <p class="ddl-line">第 12 周（2026-11-25）前需完成软件测试实验报告并提交至课程平台。</p>
+              <p>答疑时间：每周四下午 16:00-18:00，地点：信息楼 A305。</p>
+            </div>
+            <div class="doc-page" id="preview-p12">
+              <div class="doc-page-tag">--- 第 12 页 ---</div>
+              <h2>4.2 软件测试基础</h2>
+              <p>软件测试是为了发现错误而执行程序的过程。按照测试方式可分为黑盒测试和白盒测试：黑盒测试又称功能测试，把程序看作一个不能打开的黑盒子，只检查功能是否符合需求规格说明；白盒测试又称结构测试，需要了解程序内部逻辑结构。</p>
+              <p class="ddl-line">实验报告需在 2026-11-25 前提交，逾期按平时成绩的 80% 计。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P5 溯源问答 ==================== -->
+      <section class="page" id="p5" data-title="溯源问答">
+        <div class="page-head">
+          <div><h1 class="page-title">溯源问答</h1><p class="page-desc">基于「软件工程-第3章-需求分析.pptx」提问，每个回答均附页码出处。</p></div>
+          <span class="kb-badge"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16h16V8z"/><path d="M14 2v6h6"/></svg>知识库：软件工程课件</span>
+        </div>
+        <div class="chat-card card">
+          <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-user">
+              <div class="msg-avatar user">钟</div>
+              <div class="msg-body"><div class="msg-bubble">软件工程的需求分析阶段有哪些主要任务？</div></div>
+            </div>
+            <div class="msg msg-ai">
+              <div class="msg-avatar ai"><svg viewBox="0 0 24 24"><rect x="1" y="1" width="22" height="22" rx="7" fill="#4F46E5"/><circle cx="8" cy="12" r="1.6" fill="#fff"/><circle cx="16" cy="12" r="1.6" fill="#fff"/><path d="M8 16h8" stroke="#fff" stroke-width="1.5"/></svg></div>
+              <div class="msg-body">
+                <div class="msg-bubble">需求分析阶段的基本任务是回答"系统必须做什么"。主要任务包括：①确定系统的综合要求（功能、性能、可靠性、接口、约束等）；②分析系统的数据要求；③导出系统的逻辑模型；④修正系统开发计划。</div>
+                <div class="source-badges"><span class="source-badge">来源：课件第 3 页</span></div>
+              </div>
+            </div>
+            <div class="msg msg-user">
+              <div class="msg-avatar user">钟</div>
+              <div class="msg-body"><div class="msg-bubble">这门课的第二次团队作业什么时候截止？</div></div>
+            </div>
+            <div class="msg msg-ai">
+              <div class="msg-avatar ai"><svg viewBox="0 0 24 24"><rect x="1" y="1" width="22" height="22" rx="7" fill="#4F46E5"/><circle cx="8" cy="12" r="1.6" fill="#fff"/><circle cx="16" cy="12" r="1.6" fill="#fff"/><path d="M8 16h8" stroke="#fff" stroke-width="1.5"/></svg></div>
+              <div class="msg-body">
+                <div class="msg-bubble">根据课件，第二次团队作业需在 <b>2026-11-22 23:59</b> 前提交，内容包括原型设计、概要设计（UML 图与数据库设计）及说明书。建议尽早完成 DDL 同步。</div>
+                <div class="source-badges"><span class="source-badge">来源：课件第 8 页</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- 输入框 -->
+          <div class="chat-input-area">
+            <div class="chat-input-box">
+              <input type="text" id="chatInput" placeholder="输入你的问题，回车发送（试试输入「作业 DDL」或「无关」）" />
+              <button class="btn btn-primary" id="chatSend">
+                发送<svg viewBox="0 0 24 24" class="btn-ico"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+              </button>
+            </div>
+            <div class="chat-hint">提示：输入「DDL」「作业」触发带页码回答，输入「无关」查看拒答效果。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P6 复习卡片 ==================== -->
+      <section class="page" id="p6" data-title="复习卡片">
+        <div class="page-head">
+          <div><h1 class="page-title">复习卡片</h1><p class="page-desc">点击卡片翻转查看答案，标记掌握度以安排复习。</p></div>
+          <button class="btn btn-primary" data-go="p4"><svg viewBox="0 0 24 24" class="btn-ico"><path d="M12 5v14M5 12h14"/></svg>生成新卡片</button>
+        </div>
+        <div class="mastery-bar card">
+          <span>本组掌握进度</span>
+          <div class="mastery-track"><div class="mastery-fill" style="width:50%"></div></div>
+          <span class="mastery-text">2 / 4 已掌握</span>
+        </div>
+        <div class="flashcard-grid" id="flashcardGrid">
+          <!-- 卡片 1 -->
+          <div class="flashcard" data-card="1">
+            <div class="flashcard-inner">
+              <div class="flashcard-face flashcard-front">
+                <span class="fc-tag"> quiz · 第3页 </span>
+                <div class="fc-q">什么是软件需求？</div>
+                <div class="fc-hint">点击翻转查看答案</div>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <div class="fc-a">软件需求是用户对软件系统在功能、行为、性能、设计约束等方面的期望，分为功能需求、非功能需求与设计约束。</div>
+                <div class="fc-source">来源：课件第 3 页</div>
+              </div>
+            </div>
+            <div class="fc-actions">
+              <button class="fc-btn fc-got" data-action="mastered">已掌握</button>
+              <button class="fc-btn fc-review" data-action="review">再复习</button>
+            </div>
+          </div>
+          <!-- 卡片 2 -->
+          <div class="flashcard" data-card="2">
+            <div class="flashcard-inner">
+              <div class="flashcard-face flashcard-front">
+                <span class="fc-tag"> quiz · 第5页 </span>
+                <div class="fc-q">UML 用例图的作用是什么？</div>
+                <div class="fc-hint">点击翻转查看答案</div>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <div class="fc-a">用例图从用户视角描述系统的功能需求，展示参与者（Actor）与用例（Use Case）之间的交互关系，用于需求分析阶段。</div>
+                <div class="fc-source">来源：课件第 5 页</div>
+              </div>
+            </div>
+            <div class="fc-actions">
+              <button class="fc-btn fc-got" data-action="mastered">已掌握</button>
+              <button class="fc-btn fc-review" data-action="review">再复习</button>
+            </div>
+          </div>
+          <!-- 卡片 3 -->
+          <div class="flashcard" data-card="3">
+            <div class="flashcard-inner">
+              <div class="flashcard-face flashcard-front">
+                <span class="fc-tag"> quiz · 第12页 </span>
+                <div class="fc-q">黑盒测试与白盒测试有何区别？</div>
+                <div class="fc-hint">点击翻转查看答案</div>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <div class="fc-a">黑盒测试不关心程序内部逻辑，依据需求规格说明检查功能是否正确；白盒测试依据程序内部逻辑结构设计测试用例，覆盖代码路径。</div>
+                <div class="fc-source">来源：课件第 12 页</div>
+              </div>
+            </div>
+            <div class="fc-actions">
+              <button class="fc-btn fc-got" data-action="mastered">已掌握</button>
+              <button class="fc-btn fc-review" data-action="review">再复习</button>
+            </div>
+          </div>
+          <!-- 卡片 4 -->
+          <div class="flashcard" data-card="4">
+            <div class="flashcard-inner">
+              <div class="flashcard-face flashcard-front">
+                <span class="fc-tag"> quiz · 第9页 </span>
+                <div class="fc-q">什么是耦合与内聚？</div>
+                <div class="fc-hint">点击翻转查看答案</div>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <div class="fc-a">耦合度量模块间相互连接的紧密程度，内聚度量模块内部各元素彼此结合的紧密程度。优秀设计追求"高内聚、低耦合"。</div>
+                <div class="fc-source">来源：课件第 9 页</div>
+              </div>
+            </div>
+            <div class="fc-actions">
+              <button class="fc-btn fc-got" data-action="mastered">已掌握</button>
+              <button class="fc-btn fc-review" data-action="review">再复习</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P7 DDL 待办 ==================== -->
+      <section class="page" id="p7" data-title="DDL 待办">
+        <div class="page-head">
+          <div><h1 class="page-title">DDL 待办</h1><p class="page-desc">从课件中自动识别的截止时间，确认后同步到待办清单。</p></div>
+          <span class="kb-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7s8 6 8 10z"/></svg>正则识别 · 4 处日期</span>
+        </div>
+        <!-- 与上一版联动说明 -->
+        <div class="notice notice-link">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+          <div><b>与上一版 TaskMate Duo 联动</b><p>点击"确认同步"将调用上一版 MCP 工具 <code>add_todo</code>，把 DDL 写入 TaskMate 待办库，打通"提醒做 → 帮忙做"闭环。</p></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>识别到的 DDL 列表</h3><span class="muted">来源：软件工程-第3章-需求分析.pptx</span></div>
+          <div class="table-wrap">
+            <table class="data-table ddl-table">
+              <thead><tr><th>待办事项</th><th>截止时间</th><th>来源页</th><th>优先级</th><th>状态</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>提交第二次团队作业（原型 + UML + 说明书）</td>
+                  <td>2026-11-22 23:59</td>
+                  <td><span class="page-badge">第 8 页</span></td>
+                  <td><span class="prio prio-high">高</span></td>
+                  <td><span class="badge badge-warn">待确认</span></td>
+                  <td><button class="btn btn-sm btn-primary sync-btn" data-todo="第二次团队作业">确认同步</button></td>
+                </tr>
+                <tr>
+                  <td>完成软件测试实验报告并提交</td>
+                  <td>2026-11-25 23:59</td>
+                  <td><span class="page-badge">第 12 页</span></td>
+                  <td><span class="prio prio-mid">中</span></td>
+                  <td><span class="badge badge-warn">待确认</span></td>
+                  <td><button class="btn btn-sm btn-primary sync-btn" data-todo="软件测试实验报告">确认同步</button></td>
+                </tr>
+                <tr>
+                  <td>数据库设计作业提交</td>
+                  <td>2026-11-20 23:59</td>
+                  <td><span class="page-badge">第 15 页</span></td>
+                  <td><span class="prio prio-high">高</span></td>
+                  <td><span class="badge badge-warn">待确认</span></td>
+                  <td><button class="btn btn-sm btn-primary sync-btn" data-todo="数据库设计作业">确认同步</button></td>
+                </tr>
+                <tr>
+                  <td>需求分析文档初稿</td>
+                  <td>2026-11-18 23:59</td>
+                  <td><span class="page-badge">第 3 页</span></td>
+                  <td><span class="prio prio-low">低</span></td>
+                  <td><span class="badge badge-success">已同步</span></td>
+                  <td><button class="btn btn-sm btn-ghost" disabled>已同步</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P8 历史问答 ==================== -->
+      <section class="page" id="p8" data-title="历史问答">
+        <div class="page-head">
+          <div><h1 class="page-title">历史问答</h1><p class="page-desc">按时间倒序回看你的全部提问，答案均保留页码出处。</p></div>
+          <input type="text" class="search-input" id="historySearch" placeholder="搜索历史问题…" />
+        </div>
+        <div class="history-layout card">
+          <!-- 左侧问题列表 -->
+          <div class="history-list" id="historyList">
+            <div class="history-item active" data-id="q1">
+              <div class="hi-top"><span class="hi-date">2026-11-19 10:24</span></div>
+              <div class="hi-q">第二次团队作业什么时候截止？</div>
+              <div class="hi-meta">软件工程课件 · 第 8 页</div>
+            </div>
+            <div class="history-item" data-id="q2">
+              <div class="hi-top"><span class="hi-date">2026-11-18 21:06</span></div>
+              <div class="hi-q">需求分析阶段有哪些主要任务？</div>
+              <div class="hi-meta">软件工程课件 · 第 3 页</div>
+            </div>
+            <div class="history-item" data-id="q3">
+              <div class="hi-top"><span class="hi-date">2026-11-17 15:40</span></div>
+              <div class="hi-q">黑盒测试和白盒测试的区别是什么？</div>
+              <div class="hi-meta">软件测试基础 · 第 12 页</div>
+            </div>
+            <div class="history-item" data-id="q4">
+              <div class="hi-top"><span class="hi-date">2026-11-16 09:12</span></div>
+              <div class="hi-q">UML 用例图的作用是什么？</div>
+              <div class="hi-meta">UML建模与类图 · 第 5 页</div>
+            </div>
+            <div class="history-item" data-id="q5">
+              <div class="hi-top"><span class="hi-date">2026-11-14 20:31</span></div>
+              <div class="hi-q">什么是高内聚低耦合？</div>
+              <div class="hi-meta">软件工程课件 · 第 9 页</div>
+            </div>
+          </div>
+          <!-- 右侧问答详情 -->
+          <div class="history-detail" id="historyDetail">
+            <div class="hd-head"><span class="hd-date">2026-11-19 10:24</span><span class="badge badge-success">已溯源</span></div>
+            <div class="hd-block">
+              <div class="hd-label">我的问题</div>
+              <div class="hd-q">第二次团队作业什么时候截止？</div>
+            </div>
+            <div class="hd-block">
+              <div class="hd-label">AI 回答</div>
+              <div class="hd-a">根据课件，第二次团队作业需在 2026-11-22 23:59 前提交，内容包括原型设计、概要设计（UML 图与数据库设计）及说明书。建议尽早完成 DDL 同步。</div>
+              <div class="source-badges"><span class="source-badge">来源：课件第 8 页</span></div>
+            </div>
+            <div class="hd-foot">关联资料：软件工程-第3章-需求分析.pptx　|　问答编号：QA-0086</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P9 管理首页 ==================== -->
+      <section class="page" id="p9" data-title="管理首页">
+        <div class="page-head">
+          <div><h1 class="page-title">管理首页</h1><p class="page-desc">TaskMate 后台运营总览 · 数据截至 2026-11-19</p></div>
+          <span class="badge badge-success sys-ok"><span class="dot"></span>系统运行正常</span>
+        </div>
+        <div class="stat-grid stat-grid-4">
+          <div class="stat-card"><div class="stat-ico ico-indigo"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M17 11h6M20 8v6"/></svg></div><div class="stat-info"><div class="stat-label">总用户</div><div class="stat-num">128<span>人</span></div></div></div>
+          <div class="stat-card"><div class="stat-ico ico-violet"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16h16V8z"/><path d="M14 2v6h6"/></svg></div><div class="stat-info"><div class="stat-label">总资料</div><div class="stat-num">1,462<span>份</span></div></div></div>
+          <div class="stat-card"><div class="stat-ico ico-blue"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="stat-info"><div class="stat-label">总问答</div><div class="stat-num">8,930<span>次</span></div></div></div>
+          <div class="stat-card"><div class="stat-ico ico-orange"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="14" height="14" rx="2"/><rect x="7" y="7" width="14" height="14" rx="2"/></svg></div><div class="stat-info"><div class="stat-label">复习卡片</div><div class="stat-num">2,411<span>张</span></div></div></div>
+        </div>
+        <div class="two-col">
+          <!-- 近7日上传趋势：纯 CSS 条形图 -->
+          <div class="card">
+            <div class="card-head"><h3>近 7 日上传趋势</h3><span class="muted">单位：份</span></div>
+            <div class="bar-chart">
+              <div class="bar-col"><div class="bar" style="height:45%"><span class="bar-val">18</span></div><span class="bar-label">11-13</span></div>
+              <div class="bar-col"><div class="bar" style="height:62%"><span class="bar-val">25</span></div><span class="bar-label">11-14</span></div>
+              <div class="bar-col"><div class="bar" style="height:38%"><span class="bar-val">15</span></div><span class="bar-label">11-15</span></div>
+              <div class="bar-col"><div class="bar" style="height:78%"><span class="bar-val">31</span></div><span class="bar-label">11-16</span></div>
+              <div class="bar-col"><div class="bar" style="height:55%"><span class="bar-val">22</span></div><span class="bar-label">11-17</span></div>
+              <div class="bar-col"><div class="bar" style="height:88%"><span class="bar-val">35</span></div><span class="bar-label">11-18</span></div>
+              <div class="bar-col"><div class="bar bar-today" style="height:100%"><span class="bar-val">40</span></div><span class="bar-label">11-19</span></div>
+            </div>
+          </div>
+          <!-- 系统状态卡 -->
+          <div class="card">
+            <div class="card-head"><h3>系统状态</h3></div>
+            <div class="status-list">
+              <div class="status-row"><span class="st-name"><span class="st-dot ok"></span>API 服务（DeepSeek）</span><span class="st-val ok">正常 · 延迟 320ms</span></div>
+              <div class="status-row"><span class="st-name"><span class="st-dot ok"></span>SQLite 数据库</span><span class="st-val ok">正常 · 12.4 MB</span></div>
+              <div class="status-row"><span class="st-name"><span class="st-dot ok"></span>BM25 检索引擎</span><span class="st-val ok">正常</span></div>
+              <div class="status-row"><span class="st-name"><span class="st-dot warn"></span>解析任务队列</span><span class="st-val warn">2 个排队中</span></div>
+              <div class="status-row"><span class="st-name"><span class="st-dot ok"></span>文件存储</span><span class="st-val ok">已用 3.2 GB / 20 GB</span></div>
+            </div>
+            <div class="sys-meta">上次健康检查：2026-11-19 10:30:02　|　正常运行时间：14 天 06 小时</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P10 用户管理 ==================== -->
+      <section class="page" id="p10" data-title="用户管理">
+        <div class="page-head">
+          <div><h1 class="page-title">用户管理</h1><p class="page-desc">管理注册用户与角色权限（共 128 人，当前展示部分）。</p></div>
+          <input type="text" class="search-input" id="userSearch" placeholder="搜索学号 / 昵称…" />
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table class="data-table" id="userTable">
+              <thead><tr><th>学号</th><th>昵称</th><th>角色</th><th>资料数</th><th>状态</th><th>注册时间</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr><td>3224004271</td><td>钟楚楠</td><td><span class="role role-student">学生</span></td><td>12</td><td><span class="badge badge-success">启用</span></td><td>2026-09-01</td><td><button class="btn btn-sm btn-ghost toggle-user">停用</button></td></tr>
+                <tr><td>3224004347</td><td>易诗婷</td><td><span class="role role-student">学生</span></td><td>10</td><td><span class="badge badge-success">启用</span></td><td>2026-09-01</td><td><button class="btn btn-sm btn-ghost toggle-user">停用</button></td></tr>
+                <tr><td>3224004344</td><td>谭添睿</td><td><span class="role role-student">学生</span></td><td>8</td><td><span class="badge badge-success">启用</span></td><td>2026-09-02</td><td><button class="btn btn-sm btn-ghost toggle-user">停用</button></td></tr>
+                <tr><td>3224004382</td><td>李采云</td><td><span class="role role-student">学生</span></td><td>9</td><td><span class="badge badge-success">启用</span></td><td>2026-09-02</td><td><button class="btn btn-sm btn-ghost toggle-user">停用</button></td></tr>
+                <tr><td>3224004100</td><td>王小明</td><td><span class="role role-student">学生</span></td><td>5</td><td><span class="badge badge-muted">停用</span></td><td>2026-09-05</td><td><button class="btn btn-sm btn-ghost toggle-user">启用</button></td></tr>
+                <tr><td>3224004156</td><td>赵敏</td><td><span class="role role-admin">管理员</span></td><td>21</td><td><span class="badge badge-success">启用</span></td><td>2026-08-28</td><td><button class="btn btn-sm btn-ghost toggle-user">停用</button></td></tr>
+                <tr><td>3224004210</td><td>陈思远</td><td><span class="role role-student">学生</span></td><td>14</td><td><span class="badge badge-success">启用</span></td><td>2026-09-08</td><td><button class="btn btn-sm btn-ghost toggle-user">停用</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P11 资料管理 ==================== -->
+      <section class="page" id="p11" data-title="资料管理">
+        <div class="page-head">
+          <div><h1 class="page-title">资料管理</h1><p class="page-desc">查看与维护全站资料（共 1,462 份）。</p></div>
+          <div class="head-controls">
+            <select class="select-input" id="materialFilter">
+              <option value="all">全部状态</option>
+              <option value="解析完成">解析完成</option>
+              <option value="解析中">解析中</option>
+              <option value="解析失败">解析失败</option>
+            </select>
+            <input type="text" class="search-input" id="materialSearch" placeholder="搜索文件名…" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table class="data-table" id="materialTable">
+              <thead><tr><th>文件名</th><th>所属用户</th><th>类型</th><th>页数</th><th>上传时间</th><th>解析状态</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr><td><span class="file-ico pptx">P</span>软件工程-第3章-需求分析.pptx</td><td>钟楚楠</td><td>PPTX</td><td>24</td><td>2026-11-18 14:32</td><td><span class="badge badge-success">解析完成</span></td><td><button class="btn btn-sm btn-danger-outline del-btn">删除</button></td></tr>
+                <tr><td><span class="file-ico pdf">P</span>软件测试基础-单元测试.pdf</td><td>易诗婷</td><td>PDF</td><td>18</td><td>2026-11-16 09:15</td><td><span class="badge badge-success">解析完成</span></td><td><button class="btn btn-sm btn-danger-outline del-btn">删除</button></td></tr>
+                <tr><td><span class="file-ico pptx">P</span>UML建模与类图.pptx</td><td>谭添睿</td><td>PPTX</td><td>32</td><td>2026-11-14 20:08</td><td><span class="badge badge-success">解析完成</span></td><td><button class="btn btn-sm btn-danger-outline del-btn">删除</button></td></tr>
+                <tr><td><span class="file-ico pdf">P</span>数据库设计范式.pdf</td><td>李采云</td><td>PDF</td><td>15</td><td>2026-11-12 11:40</td><td><span class="badge badge-success">解析完成</span></td><td><button class="btn btn-sm btn-danger-outline del-btn">删除</button></td></tr>
+                <tr><td><span class="file-ico pptx">P</span>软件架构风格.pptx</td><td>王小明</td><td>PPTX</td><td>28</td><td>2026-11-19 08:20</td><td><span class="badge badge-info">解析中</span></td><td><button class="btn btn-sm btn-danger-outline del-btn">删除</button></td></tr>
+                <tr><td><span class="file-ico pdf">P</span>扫描版课件-乱码.pdf</td><td>陈思远</td><td>PDF</td><td>0</td><td>2026-11-11 17:05</td><td><span class="badge badge-danger">解析失败</span></td><td><button class="btn btn-sm btn-danger-outline del-btn">删除</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P12 问答监控 ==================== -->
+      <section class="page" id="p12" data-title="问答监控">
+        <div class="page-head">
+          <div><h1 class="page-title">问答监控</h1><p class="page-desc">全站问答记录审计，点击查看完整问答与溯源信息。</p></div>
+          <input type="text" class="search-input" id="qaSearch" placeholder="搜索用户 / 问题…" />
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table class="data-table" id="qaTable">
+              <thead><tr><th>用户</th><th>问题</th><th>回答摘要</th><th>来源页</th><th>时间</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr><td>钟楚楠</td><td>第二次团队作业什么时候截止？</td><td>需在 2026-11-22 23:59 前提交…</td><td><span class="page-badge">第 8 页</span></td><td>11-19 10:24</td><td><button class="btn btn-sm btn-ghost qa-detail">查看</button></td></tr>
+                <tr><td>易诗婷</td><td>需求分析有哪些主要任务？</td><td>确定综合要求、分析数据要求、导出逻辑模型…</td><td><span class="page-badge">第 3 页</span></td><td>11-18 21:06</td><td><button class="btn btn-sm btn-ghost qa-detail">查看</button></td></tr>
+                <tr><td>谭添睿</td><td>黑盒测试和白盒测试的区别？</td><td>是否关注程序内部逻辑结构的区别…</td><td><span class="page-badge">第 12 页</span></td><td>11-17 15:40</td><td><button class="btn btn-sm btn-ghost qa-detail">查看</button></td></tr>
+                <tr><td>李采云</td><td>UML 用例图的作用是什么？</td><td>从用户视角描述系统功能需求…</td><td><span class="page-badge">第 5 页</span></td><td>11-16 09:12</td><td><button class="btn btn-sm btn-ghost qa-detail">查看</button></td></tr>
+                <tr><td>王小明</td><td>天气怎么样？（无关问题）</td><td>资料中未找到相关内容，已拒答。</td><td><span class="badge badge-muted">未命中</span></td><td>11-15 14:38</td><td><button class="btn btn-sm btn-ghost qa-detail">查看</button></td></tr>
+                <tr><td>陈思远</td><td>什么是高内聚低耦合？</td><td>模块内部紧密、模块之间松散的设计原则…</td><td><span class="page-badge">第 9 页</span></td><td>11-14 20:31</td><td><button class="btn btn-sm btn-ghost qa-detail">查看</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== P13 系统配置 ==================== -->
+      <section class="page" id="p13" data-title="系统配置">
+        <div class="page-head">
+          <div><h1 class="page-title">系统配置</h1><p class="page-desc">配置大模型、检索策略、文件限制与隐私声明版本。</p></div>
+        </div>
+        <div class="config-layout">
+          <div class="card config-card">
+            <div class="config-item">
+              <div class="config-label"><b>大模型选择</b><p>用于回答生成与卡片生成，需兼容 OpenAI 接口。</p></div>
+              <select class="select-input config-select" id="cfgModel">
+                <option value="deepseek" selected>DeepSeek（deepseek-chat）</option>
+                <option value="kimi">Kimi（moonshot-v1）</option>
+                <option value="qianwen">通义千问（qwen-plus）</option>
+              </select>
+            </div>
+            <div class="config-item">
+              <div class="config-label"><b>BM25 检索阈值</b><p>低于该相似度的结果将被视为未命中并拒答。</p></div>
+              <div class="slider-wrap">
+                <input type="range" id="cfgThreshold" min="0" max="100" value="45" />
+                <span class="slider-val" id="thresholdVal">0.45</span>
+              </div>
+            </div>
+            <div class="config-item">
+              <div class="config-label"><b>文件大小上限</b><p>单个资料允许上传的最大体积。</p></div>
+              <select class="select-input config-select" id="cfgSize">
+                <option value="5">5 MB</option>
+                <option value="10" selected>10 MB</option>
+                <option value="20">20 MB</option>
+                <option value="50">50 MB</option>
+              </select>
+            </div>
+            <div class="config-item">
+              <div class="config-label"><b>隐私声明版本</b><p>当前对外展示并记录的隐私声明版本号。</p></div>
+              <input type="text" class="text-input config-select" id="cfgPrivacy" value="v1.2（2026-11-01 生效）" />
+            </div>
+            <div class="config-actions">
+              <button class="btn btn-ghost" id="cfgReset">恢复默认</button>
+              <button class="btn btn-primary" id="cfgSave"><svg viewBox="0 0 24 24" class="btn-ico"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>保存配置</button>
+            </div>
+          </div>
+          <div class="card config-note">
+            <div class="card-head"><h3>配置说明</h3></div>
+            <ul class="note-list">
+              <li><b>模型</b>：默认 DeepSeek，中文能力强、成本低；切换后需重新验证 Function Calling 兼容性。</li>
+              <li><b>阈值</b>：调高更保守（减少幻觉但可能误拒答），调低更宽松（召回更多但可能引入噪声）。</li>
+              <li><b>文件上限</b>：与解析服务内存限制相关，建议保持 10MB。</li>
+              <li><b>隐私声明</b>：版本变更会写入 Consent 表，记录用户勾选时间与版本号。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ============ Toast 提示容器（右上角滑入） ============ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- ============ 问答详情弹窗（P12 查看） ============ -->
+  <div class="modal-overlay" id="qaModal" hidden>
+    <div class="modal">
+      <div class="modal-head"><h3>问答详情</h3><button class="modal-close" id="qaModalClose">×</button></div>
+      <div class="modal-body" id="qaModalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
