@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" font-family="'Microsoft YaHei','SimHei',sans-serif">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="1200" height="1000" fill="#FAFAFA"/>
+
+  <!-- 标题栏 -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1A73E8"/>
+  <rect x="0" y="56" width="1200" height="4" fill="#0B57D0"/>
+  <text x="28" y="39" font-size="22" font-weight="bold" fill="#FFFFFF">图 1  功能思维导图 —— 课程资料第二大脑 TaskMate</text>
+  <text x="1172" y="39" font-size="14" fill="#D2E3FC" text-anchor="end">F1–F8 功能模块 · 任务搭子小队</text>
+
+  <!-- ===== 放射连线：中心 -> 一级分支 ===== -->
+  <g stroke="#90A4AE" stroke-width="2.5" fill="none">
+    <line x1="600" y1="495" x2="600" y2="272"/>
+    <line x1="735" y1="505" x2="782" y2="312"/>
+    <line x1="735" y1="530" x2="870" y2="520"/>
+    <line x1="735" y1="555" x2="782" y2="718"/>
+    <line x1="600" y1="565" x2="600" y2="768"/>
+    <line x1="465" y1="555" x2="418" y2="718"/>
+    <line x1="465" y1="530" x2="330" y2="520"/>
+    <line x1="465" y1="505" x2="418" y2="312"/>
+  </g>
+
+  <!-- ===== 一级分支 -> 子节点连线（按分支配色） ===== -->
+  <!-- F1 蓝 -->
+  <g stroke="#1A73E8" stroke-width="2" fill="none">
+    <line x1="560" y1="228" x2="440" y2="187"/>
+    <line x1="600" y1="228" x2="600" y2="187"/>
+    <line x1="640" y1="228" x2="760" y2="187"/>
+  </g>
+  <!-- F2 绿 -->
+  <g stroke="#34A853" stroke-width="2" fill="none">
+    <line x1="940" y1="305" x2="985" y2="210"/>
+    <line x1="940" y1="315" x2="985" y2="265"/>
+    <line x1="940" y1="325" x2="985" y2="320"/>
+    <line x1="940" y1="335" x2="985" y2="375"/>
+  </g>
+  <!-- F3 黄 -->
+  <g stroke="#F9AB00" stroke-width="2" fill="none">
+    <line x1="1030" y1="505" x2="1040" y2="450"/>
+    <line x1="1030" y1="520" x2="1040" y2="510"/>
+    <line x1="1030" y1="535" x2="1040" y2="570"/>
+  </g>
+  <!-- F4 紫 -->
+  <g stroke="#9334E6" stroke-width="2" fill="none">
+    <line x1="940" y1="705" x2="985" y2="650"/>
+    <line x1="940" y1="715" x2="985" y2="705"/>
+    <line x1="940" y1="725" x2="985" y2="760"/>
+    <line x1="940" y1="735" x2="985" y2="815"/>
+  </g>
+  <!-- F5 红 -->
+  <g stroke="#EA4335" stroke-width="2" fill="none">
+    <line x1="560" y1="812" x2="440" y2="843"/>
+    <line x1="600" y1="812" x2="600" y2="843"/>
+    <line x1="640" y1="812" x2="760" y2="843"/>
+  </g>
+  <!-- F6 青 -->
+  <g stroke="#00ACC1" stroke-width="2" fill="none">
+    <line x1="260" y1="705" x2="215" y2="650"/>
+    <line x1="260" y1="715" x2="215" y2="705"/>
+    <line x1="260" y1="725" x2="215" y2="760"/>
+    <line x1="260" y1="735" x2="215" y2="815"/>
+  </g>
+  <!-- F7 橙 -->
+  <g stroke="#F57C00" stroke-width="2" fill="none">
+    <line x1="170" y1="505" x2="165" y2="480"/>
+    <line x1="170" y1="535" x2="165" y2="545"/>
+  </g>
+  <!-- F8 靛 -->
+  <g stroke="#3F51B5" stroke-width="2" fill="none">
+    <line x1="260" y1="305" x2="215" y2="210"/>
+    <line x1="260" y1="315" x2="215" y2="265"/>
+    <line x1="260" y1="325" x2="215" y2="320"/>
+    <line x1="260" y1="335" x2="215" y2="375"/>
+  </g>
+
+  <!-- ===== 中心节点 ===== -->
+  <rect x="465" y="493" width="270" height="74" rx="12" fill="#1A73E8" stroke="#0B57D0" stroke-width="2"/>
+  <text x="600" y="525" font-size="19" font-weight="bold" fill="#FFFFFF" text-anchor="middle">课程资料第二大脑</text>
+  <text x="600" y="551" font-size="17" font-weight="bold" fill="#D2E3FC" text-anchor="middle">TaskMate</text>
+
+  <!-- ===== 一级分支节点 ===== -->
+  <!-- F1 -->
+  <rect x="520" y="228" width="160" height="44" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="2.5"/>
+  <text x="600" y="256" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F1 用户与权限</text>
+  <!-- F2 -->
+  <rect x="780" y="298" width="160" height="44" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="2.5"/>
+  <text x="860" y="326" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F2 资料处理</text>
+  <!-- F3 -->
+  <rect x="870" y="498" width="160" height="44" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="2.5"/>
+  <text x="950" y="526" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F3 溯源问答</text>
+  <!-- F4 -->
+  <rect x="780" y="698" width="160" height="44" rx="10" fill="#F3E8FD" stroke="#9334E6" stroke-width="2.5"/>
+  <text x="860" y="726" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F4 复习卡片</text>
+  <!-- F5 -->
+  <rect x="520" y="768" width="160" height="44" rx="10" fill="#FCE8E6" stroke="#EA4335" stroke-width="2.5"/>
+  <text x="600" y="796" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F5 DDL 联动</text>
+  <!-- F6 -->
+  <rect x="260" y="698" width="160" height="44" rx="10" fill="#E0F7FA" stroke="#00ACC1" stroke-width="2.5"/>
+  <text x="340" y="726" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F6 数据安全</text>
+  <!-- F7 -->
+  <rect x="170" y="498" width="160" height="44" rx="10" fill="#FEF3E0" stroke="#F57C00" stroke-width="2.5"/>
+  <text x="250" y="526" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F7 历史问答</text>
+  <!-- F8 -->
+  <rect x="260" y="298" width="160" height="44" rx="10" fill="#E8EAF6" stroke="#3F51B5" stroke-width="2.5"/>
+  <text x="340" y="326" font-size="15" font-weight="bold" fill="#202124" text-anchor="middle">F8 后台管理</text>
+
+  <!-- ===== 子节点 ===== -->
+  <!-- F1 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="365" y="153" width="150" height="34" rx="8" fill="#F4F8FF" stroke="#1A73E8" stroke-width="1.5"/>
+    <text x="440" y="175">注册/登录</text>
+    <rect x="525" y="153" width="150" height="34" rx="8" fill="#F4F8FF" stroke="#1A73E8" stroke-width="1.5"/>
+    <text x="600" y="175">会话隔离</text>
+    <rect x="685" y="153" width="150" height="34" rx="8" fill="#F4F8FF" stroke="#1A73E8" stroke-width="1.5"/>
+    <text x="760" y="175">角色(学生/管理员)</text>
+  </g>
+  <!-- F2 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="985" y="193" width="150" height="34" rx="8" fill="#F4FBF6" stroke="#34A853" stroke-width="1.5"/>
+    <text x="1060" y="207">上传PDF/PPTX</text><text x="1060" y="221">(≤10MB)</text>
+    <rect x="985" y="248" width="150" height="34" rx="8" fill="#F4FBF6" stroke="#34A853" stroke-width="1.5"/>
+    <text x="1060" y="270">正则脱敏</text>
+    <rect x="985" y="303" width="150" height="34" rx="8" fill="#F4FBF6" stroke="#34A853" stroke-width="1.5"/>
+    <text x="1060" y="325">按页提取入库</text>
+    <rect x="985" y="358" width="150" height="34" rx="8" fill="#F4FBF6" stroke="#34A853" stroke-width="1.5"/>
+    <text x="1060" y="380">解析失败提示</text>
+  </g>
+  <!-- F3 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="1040" y="433" width="150" height="34" rx="8" fill="#FFFDF3" stroke="#F9AB00" stroke-width="1.5"/>
+    <text x="1115" y="455">BM25检索相关页</text>
+    <rect x="1040" y="493" width="150" height="34" rx="8" fill="#FFFDF3" stroke="#F9AB00" stroke-width="1.5"/>
+    <text x="1115" y="515">拼Prompt+LLM回答</text>
+    <rect x="1040" y="553" width="150" height="34" rx="8" fill="#FFFDF3" stroke="#F9AB00" stroke-width="1.5"/>
+    <text x="1115" y="575">强制页码/未命中拒答</text>
+  </g>
+  <!-- F4 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="985" y="633" width="150" height="34" rx="8" fill="#FBF7FF" stroke="#9334E6" stroke-width="1.5"/>
+    <text x="1060" y="655">LLM生成JSON问答对</text>
+    <rect x="985" y="688" width="150" height="34" rx="8" fill="#FBF7FF" stroke="#9334E6" stroke-width="1.5"/>
+    <text x="1060" y="710">question/answer/page</text>
+    <rect x="985" y="743" width="150" height="34" rx="8" fill="#FBF7FF" stroke="#9334E6" stroke-width="1.5"/>
+    <text x="1060" y="765">前端翻转卡片</text>
+    <rect x="985" y="798" width="150" height="34" rx="8" fill="#FBF7FF" stroke="#9334E6" stroke-width="1.5"/>
+    <text x="1060" y="820">掌握度记录</text>
+  </g>
+  <!-- F5 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="365" y="843" width="150" height="34" rx="8" fill="#FEF6F5" stroke="#EA4335" stroke-width="1.5"/>
+    <text x="440" y="865">正则识别日期句式</text>
+    <rect x="525" y="843" width="150" height="34" rx="8" fill="#FEF6F5" stroke="#EA4335" stroke-width="1.5"/>
+    <text x="600" y="865">标记 is_ddl</text>
+    <rect x="685" y="843" width="150" height="34" rx="8" fill="#FEF6F5" stroke="#EA4335" stroke-width="1.5"/>
+    <text x="760" y="865">确认后同步待办</text>
+  </g>
+  <!-- F6 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="65" y="633" width="150" height="34" rx="8" fill="#F2FCFD" stroke="#00ACC1" stroke-width="1.5"/>
+    <text x="140" y="655">上传前正则脱敏</text>
+    <rect x="65" y="688" width="150" height="34" rx="8" fill="#F2FCFD" stroke="#00ACC1" stroke-width="1.5"/>
+    <text x="140" y="710">免训练参数</text>
+    <rect x="65" y="743" width="150" height="34" rx="8" fill="#F2FCFD" stroke="#00ACC1" stroke-width="1.5"/>
+    <text x="140" y="765">隐私声明勾选</text>
+    <rect x="65" y="798" width="150" height="34" rx="8" fill="#F2FCFD" stroke="#00ACC1" stroke-width="1.5"/>
+    <text x="140" y="820">一键抹除数据</text>
+  </g>
+  <!-- F7 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="15" y="463" width="150" height="34" rx="8" fill="#FFF9F0" stroke="#F57C00" stroke-width="1.5"/>
+    <text x="90" y="485">按 user_id 倒序</text>
+    <rect x="15" y="528" width="150" height="34" rx="8" fill="#FFF9F0" stroke="#F57C00" stroke-width="1.5"/>
+    <text x="90" y="550">回看含页码问答</text>
+  </g>
+  <!-- F8 子 -->
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="65" y="193" width="150" height="34" rx="8" fill="#F5F6FF" stroke="#3F51B5" stroke-width="1.5"/>
+    <text x="140" y="215">用户管理</text>
+    <rect x="65" y="248" width="150" height="34" rx="8" fill="#F5F6FF" stroke="#3F51B5" stroke-width="1.5"/>
+    <text x="140" y="270">资料管理</text>
+    <rect x="65" y="303" width="150" height="34" rx="8" fill="#F5F6FF" stroke="#3F51B5" stroke-width="1.5"/>
+    <text x="140" y="325">问答监控</text>
+    <rect x="65" y="358" width="150" height="34" rx="8" fill="#F5F6FF" stroke="#3F51B5" stroke-width="1.5"/>
+    <text x="140" y="380">系统配置/看板</text>
+  </g>
+
+  <!-- 图例说明 -->
+  <text x="600" y="975" font-size="12" fill="#5F6368" text-anchor="middle">放射状布局：中心产品 → 8 个一级功能模块(F1–F8) → 各 2–4 项子功能，颜色与后续各图模块编号一致</text>
+</svg>
