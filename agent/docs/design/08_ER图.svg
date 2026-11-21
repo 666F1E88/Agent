@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" width="1200" height="880" font-family="'Microsoft YaHei','SimHei',sans-serif">
+  <rect x="0" y="0" width="1200" height="880" fill="#FAFAFA"/>
+  <rect x="0" y="0" width="1200" height="60" fill="#1A73E8"/>
+  <rect x="0" y="56" width="1200" height="4" fill="#0B57D0"/>
+  <text x="28" y="39" font-size="22" font-weight="bold" fill="#FFFFFF">图 8  实体-关系图（ER 图）</text>
+  <text x="1172" y="39" font-size="13" fill="#D2E3FC" text-anchor="end">8 实体 · 1:N 关系 · PK 下划线 / FK 标注</text>
+
+  <!-- ===== 关系连线（先画线，实体框与菱形覆盖端点） ===== -->
+  <g stroke="#5F6368" stroke-width="1.8" fill="none">
+    <!-- 1 User-Material -->
+    <path d="M270,465 L355,330 L430,250"/>
+    <!-- 2 User-Flashcard -->
+    <path d="M270,485 L545,420 L820,405"/>
+    <!-- 3 User-QARecord -->
+    <path d="M270,505 L545,610 L820,650"/>
+    <!-- 4 User-Todo -->
+    <path d="M165,550 L355,640 L430,742"/>
+    <!-- 5 User-Consent -->
+    <path d="M165,550 L165,680"/>
+    <!-- 6 Material-Page -->
+    <path d="M660,200 L732,185 L820,175"/>
+    <!-- 7 Material-Flashcard -->
+    <path d="M660,270 L735,300 L820,400"/>
+    <!-- 8 Material-QARecord -->
+    <path d="M660,285 L735,432 L820,650"/>
+    <!-- 9 Material-Todo -->
+    <path d="M545,290 L545,520 L545,650"/>
+  </g>
+
+  <!-- ===== 基数标注 ===== -->
+  <g font-size="12" fill="#37474F" font-weight="bold">
+    <text x="290" y="430">1</text><text x="400" y="285">N</text>
+    <text x="300" y="470">1</text><text x="790" y="392">N</text>
+    <text x="300" y="520">1</text><text x="790" y="660">N</text>
+    <text x="180" y="580">1</text><text x="405" y="720">N</text>
+    <text x="150" y="600">1</text><text x="150" y="672">N</text>
+    <text x="672" y="188">1</text><text x="805" y="168">N</text>
+    <text x="672" y="258">1</text><text x="805" y="395">N</text>
+    <text x="672" y="300">1</text><text x="805" y="640">N</text>
+    <text x="530" y="310">1</text><text x="530" y="645">N</text>
+  </g>
+
+  <!-- ===== 菱形关系 ===== -->
+  <g stroke-width="2">
+    <!-- 1 上传 -->
+    <polygon points="355,288 415,330 355,372 295,330" fill="#E8F0FE" stroke="#1A73E8"/>
+    <text x="355" y="327" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">上传</text>
+    <text x="355" y="343" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 2 生成 -->
+    <polygon points="545,378 605,420 545,462 485,420" fill="#E8F0FE" stroke="#1A73E8"/>
+    <text x="545" y="417" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">生成</text>
+    <text x="545" y="433" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 3 提问 -->
+    <polygon points="545,568 605,610 545,652 485,610" fill="#E8F0FE" stroke="#1A73E8"/>
+    <text x="545" y="607" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">提问</text>
+    <text x="545" y="623" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 4 拥有(待办) -->
+    <polygon points="355,598 415,640 355,682 295,640" fill="#E8F0FE" stroke="#1A73E8"/>
+    <text x="355" y="637" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">拥有</text>
+    <text x="355" y="653" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 5 签署 -->
+    <polygon points="165,568 225,610 165,652 105,610" fill="#E8F0FE" stroke="#1A73E8"/>
+    <text x="165" y="607" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">签署</text>
+    <text x="165" y="623" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 6 包含(页) -->
+    <polygon points="732,143 792,185 732,227 672,185" fill="#E6F4EA" stroke="#34A853"/>
+    <text x="732" y="182" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">包含</text>
+    <text x="732" y="198" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 7 产出(卡片) -->
+    <polygon points="735,258 795,300 735,342 675,300" fill="#E6F4EA" stroke="#34A853"/>
+    <text x="735" y="297" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">产出</text>
+    <text x="735" y="313" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 8 来源(问答) -->
+    <polygon points="735,390 795,432 735,474 675,432" fill="#E6F4EA" stroke="#34A853"/>
+    <text x="735" y="429" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">来源</text>
+    <text x="735" y="445" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+    <!-- 9 DDL联动 -->
+    <polygon points="545,478 605,520 545,562 485,520" fill="#E6F4EA" stroke="#34A853"/>
+    <text x="545" y="517" font-size="12" font-weight="bold" fill="#202124" text-anchor="middle">DDL联动</text>
+    <text x="545" y="533" font-size="12" fill="#5F6368" text-anchor="middle">1 : N</text>
+  </g>
+
+  <!-- ===== 实体：AdminConfig（独立） ===== -->
+  <g>
+    <rect x="60" y="100" width="210" height="130" rx="6" fill="#FFFFFF" stroke="#5F6368" stroke-width="2"/>
+    <rect x="60" y="100" width="210" height="30" rx="6" fill="#E8EAF6"/>
+    <text x="165" y="121" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">AdminConfig 系统配置</text>
+    <g font-size="12" fill="#202124">
+      <text x="72" y="148" text-decoration="underline">«PK» config_key</text>
+      <text x="72" y="163">config_value</text>
+      <text x="72" y="178">updated_at</text>
+    </g>
+  </g>
+
+  <!-- ===== 实体：User ===== -->
+  <g>
+    <rect x="60" y="380" width="210" height="170" rx="6" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2.5"/>
+    <rect x="60" y="380" width="210" height="30" rx="6" fill="#E8F0FE"/>
+    <text x="165" y="401" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">User 用户</text>
+    <g font-size="12" fill="#202124">
+      <text x="72" y="428" text-decoration="underline">«PK» user_id</text>
+      <text x="72" y="443">username</text>
+      <text x="72" y="458">password_hash</text>
+      <text x="72" y="473">nickname</text>
+      <text x="72" y="488">role</text>
+      <text x="72" y="503">created_at</text>
+      <text x="72" y="518">status</text>
+    </g>
+  </g>
+
+  <!-- ===== 实体：Consent ===== -->
+  <g>
+    <rect x="60" y="680" width="210" height="150" rx="6" fill="#FFFFFF" stroke="#F57C00" stroke-width="2.5"/>
+    <rect x="60" y="680" width="210" height="30" rx="6" fill="#FEF3E0"/>
+    <text x="165" y="701" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">Consent 隐私声明</text>
+    <g font-size="12" fill="#202124">
+      <text x="72" y="728" text-decoration="underline">«PK» consent_id</text>
+      <text x="72" y="743">«FK» user_id</text>
+      <text x="72" y="758">«FK» material_id</text>
+      <text x="72" y="773">version</text>
+      <text x="72" y="788">consent_time</text>
+    </g>
+  </g>
+
+  <!-- ===== 实体：Material ===== -->
+  <g>
+    <rect x="430" y="100" width="230" height="190" rx="6" fill="#FFFFFF" stroke="#34A853" stroke-width="2.5"/>
+    <rect x="430" y="100" width="230" height="30" rx="6" fill="#E6F4EA"/>
+    <text x="545" y="121" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">Material 资料</text>
+    <g font-size="12" fill="#202124">
+      <text x="442" y="146" text-decoration="underline">«PK» material_id</text>
+      <text x="442" y="161">«FK» user_id</text>
+      <text x="442" y="176">filename</text>
+      <text x="442" y="191">file_type</text>
+      <text x="442" y="206">file_size</text>
+      <text x="442" y="221">page_count</text>
+      <text x="442" y="236">storage_path</text>
+      <text x="442" y="251">sha256</text>
+      <text x="442" y="266">upload_time</text>
+      <text x="442" y="281">parse_status</text>
+    </g>
+  </g>
+
+  <!-- ===== 实体：Page ===== -->
+  <g>
+    <rect x="820" y="100" width="200" height="150" rx="6" fill="#FFFFFF" stroke="#F9AB00" stroke-width="2.5"/>
+    <rect x="820" y="100" width="200" height="30" rx="6" fill="#FEF7E0"/>
+    <text x="920" y="121" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">Page 页片段</text>
+    <g font-size="12" fill="#202124">
+      <text x="832" y="148" text-decoration="underline">«PK» page_id</text>
+      <text x="832" y="163">«FK» material_id</text>
+      <text x="832" y="178">page_num</text>
+      <text x="832" y="193">text_content</text>
+      <text x="832" y="208">is_ddl</text>
+      <text x="832" y="223">char_count</text>
+    </g>
+  </g>
+
+  <!-- ===== 实体：Flashcard ===== -->
+  <g>
+    <rect x="820" y="320" width="210" height="170" rx="6" fill="#FFFFFF" stroke="#9334E6" stroke-width="2.5"/>
+    <rect x="820" y="320" width="210" height="30" rx="6" fill="#F3E8FD"/>
+    <text x="925" y="341" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">Flashcard 复习卡片</text>
+    <g font-size="12" fill="#202124">
+      <text x="832" y="368" text-decoration="underline">«PK» card_id</text>
+      <text x="832" y="383">«FK» user_id</text>
+      <text x="832" y="398">«FK» material_id</text>
+      <text x="832" y="413">question</text>
+      <text x="832" y="428">answer</text>
+      <text x="832" y="443">source_page</text>
+      <text x="832" y="458">mastery</text>
+      <text x="832" y="473">created_at</text>
+    </g>
+  </g>
+
+  <!-- ===== 实体：QARecord ===== -->
+  <g>
+    <rect x="820" y="590" width="210" height="160" rx="6" fill="#FFFFFF" stroke="#EA4335" stroke-width="2.5"/>
+    <rect x="820" y="590" width="210" height="30" rx="6" fill="#FCE8E6"/>
+    <text x="925" y="611" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">QARecord 问答记录</text>
+    <g font-size="12" fill="#202124">
+      <text x="832" y="638" text-decoration="underline">«PK» qa_id</text>
+      <text x="832" y="653">«FK» user_id</text>
+      <text x="832" y="668">«FK» material_id</text>
+      <text x="832" y="683">question</text>
+      <text x="832" y="698">answer</text>
+      <text x="832" y="713">source_pages(JSON)</text>
+      <text x="832" y="728">created_at</text>
+    </g>
+  </g>
+
+  <!-- ===== 实体：Todo ===== -->
+  <g>
+    <rect x="430" y="650" width="230" height="185" rx="6" fill="#FFFFFF" stroke="#00ACC1" stroke-width="2.5"/>
+    <rect x="430" y="650" width="230" height="30" rx="6" fill="#E0F7FA"/>
+    <text x="545" y="671" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">Todo 待办(继承上一版)</text>
+    <g font-size="12" fill="#202124">
+      <text x="442" y="696" text-decoration="underline">«PK» id</text>
+      <text x="442" y="711">«FK» user_id</text>
+      <text x="442" y="726">title</text>
+      <text x="442" y="741">done</text>
+      <text x="442" y="756">priority</text>
+      <text x="442" y="771">duration</text>
+      <text x="442" y="786">deadline</text>
+      <text x="442" y="801">created_at</text>
+      <text x="442" y="816">«FK» source_material_id</text>
+      <text x="442" y="831">source_page</text>
+    </g>
+  </g>
+
+  <!-- 图例 -->
+  <g font-size="12" fill="#3C4043">
+    <rect x="60" y="850" width="1080" height="24" rx="6" fill="#F1F3F4" stroke="#DADCE0"/>
+    <text x="72" y="866">矩形=实体 · 菱形=关系（1:N）· «PK»下划线=主键 · «FK»=外键 · 用户 1:N 资料/卡片/问答/待办/声明；资料 1:N 页/卡片/问答/待办(DDL来源)</text>
+  </g>
+</svg>
