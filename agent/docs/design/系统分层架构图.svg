@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" font-family="'Microsoft YaHei','SimHei',sans-serif">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="1200" height="800" fill="#FAFAFA"/>
+
+  <!-- 标题栏 -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1A73E8"/>
+  <rect x="0" y="56" width="1200" height="4" fill="#0B57D0"/>
+  <text x="28" y="39" font-size="22" font-weight="bold" fill="#FFFFFF">图 2  系统分层架构图</text>
+  <text x="1172" y="39" font-size="14" fill="#D2E3FC" text-anchor="end">四层架构 · FastMCP 能力层 · 任务搭子小队</text>
+
+  <!-- ===== 层间调用箭头（自上而下） ===== -->
+  <g stroke="#37474F" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <line x1="465" y1="210" x2="465" y2="233"/>
+    <line x1="465" y1="355" x2="465" y2="378"/>
+    <line x1="465" y1="560" x2="465" y2="583"/>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#37474F"/>
+    </marker>
+    <marker id="arrowdash" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5F6368"/>
+    </marker>
+  </defs>
+
+  <!-- ================= 表现层 ================= -->
+  <rect x="40" y="80" width="850" height="130" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="2.5"/>
+  <rect x="40" y="80" width="170" height="30" rx="8" fill="#1A73E8"/>
+  <text x="125" y="101" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">表现层</text>
+  <text x="225" y="101" font-size="12" fill="#3C4043">Presentation Layer · Streamlit + 自定义 CSS</text>
+
+  <rect x="60" y="122" width="400" height="74" rx="8" fill="#FFFFFF" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="260" y="145" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">Streamlit 前台（学生端）</text>
+  <text x="260" y="166" font-size="12" fill="#5F6368" text-anchor="middle">登录注册 / 工作台 / 上传解析 / 溯源问答</text>
+  <text x="260" y="184" font-size="12" fill="#5F6368" text-anchor="middle">复习卡片 / DDL 确认弹窗 / 历史问答</text>
+
+  <rect x="470" y="122" width="400" height="74" rx="8" fill="#FFFFFF" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="670" y="145" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">管理后台（管理端）</text>
+  <text x="670" y="166" font-size="12" fill="#5F6368" text-anchor="middle">统计看板 / 用户管理 / 资料管理</text>
+  <text x="670" y="184" font-size="12" fill="#5F6368" text-anchor="middle">问答监控 / 系统配置（模型/阈值）</text>
+
+  <!-- ================= 应用层 ================= -->
+  <rect x="40" y="235" width="850" height="120" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="2.5"/>
+  <rect x="40" y="235" width="170" height="30" rx="8" fill="#34A853"/>
+  <text x="125" y="256" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">应用层</text>
+  <text x="225" y="256" font-size="12" fill="#3C4043">Application Layer · Agent 编排</text>
+
+  <rect x="60" y="278" width="250" height="60" rx="8" fill="#FFFFFF" stroke="#34A853" stroke-width="1.5"/>
+  <text x="185" y="302" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">MCP Client</text>
+  <text x="185" y="323" font-size="12" fill="#5F6368" text-anchor="middle">连接 FastMCP Server</text>
+
+  <rect x="330" y="278" width="250" height="60" rx="8" fill="#FFFFFF" stroke="#34A853" stroke-width="1.5"/>
+  <text x="455" y="302" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">Agent 大脑（DeepSeek）</text>
+  <text x="455" y="323" font-size="12" fill="#5F6368" text-anchor="middle">意图理解 / 任务规划</text>
+
+  <rect x="600" y="278" width="270" height="60" rx="8" fill="#FFFFFF" stroke="#34A853" stroke-width="1.5"/>
+  <text x="735" y="302" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">工具调用循环</text>
+  <text x="735" y="323" font-size="12" fill="#5F6368" text-anchor="middle">Function Calling / 结果回填</text>
+
+  <!-- ================= 能力层 ================= -->
+  <rect x="40" y="380" width="850" height="180" rx="10" fill="#FEF7E0" stroke="#F9AB00" stroke-width="2.5"/>
+  <rect x="40" y="380" width="170" height="30" rx="8" fill="#F9AB00"/>
+  <text x="125" y="401" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">能力层</text>
+  <text x="225" y="401" font-size="12" fill="#3C4043">Capability Layer · FastMCP Server（共 11 个工具）</text>
+
+  <!-- 上一版 6 工具 -->
+  <text x="60" y="430" font-size="12" font-weight="bold" fill="#B06000">继承上一版（6）：</text>
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="60" y="438" width="122" height="34" rx="7" fill="#FFFFFF" stroke="#F9AB00" stroke-width="1.5"/><text x="121" y="459">add_todo</text>
+    <rect x="192" y="438" width="122" height="34" rx="7" fill="#FFFFFF" stroke="#F9AB00" stroke-width="1.5"/><text x="253" y="459">list_todos</text>
+    <rect x="324" y="438" width="122" height="34" rx="7" fill="#FFFFFF" stroke="#F9AB00" stroke-width="1.5"/><text x="385" y="459">complete_todo</text>
+    <rect x="456" y="438" width="122" height="34" rx="7" fill="#FFFFFF" stroke="#F9AB00" stroke-width="1.5"/><text x="517" y="459">delete_todo</text>
+    <rect x="588" y="438" width="130" height="34" rx="7" fill="#FFFFFF" stroke="#F9AB00" stroke-width="1.5"/><text x="653" y="459">export_markdown</text>
+    <rect x="728" y="438" width="142" height="34" rx="7" fill="#FFFFFF" stroke="#F9AB00" stroke-width="1.5"/><text x="799" y="459">save_memory</text>
+  </g>
+  <!-- 本版新增 5 工具 -->
+  <text x="60" y="500" font-size="12" font-weight="bold" fill="#B06000">本版新增（5）：</text>
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="60" y="508" width="150" height="34" rx="7" fill="#FFF8E6" stroke="#F9AB00" stroke-width="1.5"/><text x="135" y="529">ingest_material</text>
+    <rect x="220" y="508" width="130" height="34" rx="7" fill="#FFF8E6" stroke="#F9AB00" stroke-width="1.5"/><text x="285" y="529">ask_course</text>
+    <rect x="360" y="508" width="150" height="34" rx="7" fill="#FFF8E6" stroke="#F9AB00" stroke-width="1.5"/><text x="435" y="529">make_flashcards</text>
+    <rect x="520" y="508" width="180" height="34" rx="7" fill="#FFF8E6" stroke="#F9AB00" stroke-width="1.5"/><text x="610" y="529">sync_ddl_to_todo</text>
+    <rect x="710" y="508" width="160" height="34" rx="7" fill="#FFF8E6" stroke="#F9AB00" stroke-width="1.5"/><text x="790" y="529">erase_user_data</text>
+  </g>
+
+  <!-- ================= 数据层 ================= -->
+  <rect x="40" y="585" width="850" height="150" rx="10" fill="#F3E8FD" stroke="#9334E6" stroke-width="2.5"/>
+  <rect x="40" y="585" width="170" height="30" rx="8" fill="#9334E6"/>
+  <text x="125" y="606" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">数据层</text>
+  <text x="225" y="606" font-size="12" fill="#3C4043">Data Layer · SQLite（单文件、本地、零运维）</text>
+  <g font-size="12" fill="#202124" text-anchor="middle">
+    <rect x="60" y="630" width="120" height="38" rx="7" fill="#FFFFFF" stroke="#9334E6" stroke-width="1.5"/><text x="120" y="654">users</text>
+    <rect x="192" y="630" width="120" height="38" rx="7" fill="#FFFFFF" stroke="#9334E6" stroke-width="1.5"/><text x="252" y="654">materials</text>
+    <rect x="324" y="630" width="120" height="38" rx="7" fill="#FFFFFF" stroke="#9334E6" stroke-width="1.5"/><text x="384" y="654">pages</text>
+    <rect x="456" y="630" width="120" height="38" rx="7" fill="#FFFFFF" stroke="#9334E6" stroke-width="1.5"/><text x="516" y="654">flashcards</text>
+    <rect x="588" y="630" width="130" height="38" rx="7" fill="#FFFFFF" stroke="#9334E6" stroke-width="1.5"/><text x="653" y="654">qa_records</text>
+    <rect x="730" y="630" width="140" height="38" rx="7" fill="#FFFFFF" stroke="#9334E6" stroke-width="1.5"/><text x="800" y="654">todos</text>
+    <rect x="60" y="680" width="120" height="36" rx="7" fill="#FBF7FF" stroke="#9334E6" stroke-width="1.5"/><text x="120" y="703">consent</text>
+    <rect x="192" y="680" width="120" height="36" rx="7" fill="#FBF7FF" stroke="#9334E6" stroke-width="1.5"/><text x="252" y="703">admin_config</text>
+    <text x="420" y="704" font-size="12" fill="#7B1FA2">8 张数据表，与 ER 图 / 类图字段一一对应</text>
+  </g>
+
+  <!-- ===== 右侧外部依赖 ===== -->
+  <text x="1045" y="82" font-size="14" font-weight="bold" fill="#37474F" text-anchor="middle">外部依赖</text>
+  <g stroke="#5F6368" stroke-width="1.8" stroke-dasharray="6 4" fill="none" marker-end="url(#arrowdash)">
+    <line x1="920" y1="150" x2="892" y2="300"/>
+    <line x1="920" y1="305" x2="892" y2="450"/>
+    <line x1="920" y1="460" x2="892" y2="520"/>
+  </g>
+  <rect x="920" y="98" width="250" height="104" rx="9" fill="#F1F3F4" stroke="#5F6368" stroke-width="2"/>
+  <text x="1045" y="124" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">DeepSeek API</text>
+  <text x="1045" y="146" font-size="12" fill="#5F6368" text-anchor="middle">deepseek-chat · OpenAI 兼容</text>
+  <text x="1045" y="166" font-size="12" fill="#5F6368" text-anchor="middle">免训练 · Function Calling</text>
+  <text x="1045" y="186" font-size="12" fill="#5F6368" text-anchor="middle">供 Agent 大脑调用</text>
+
+  <rect x="920" y="253" width="250" height="104" rx="9" fill="#F1F3F4" stroke="#5F6368" stroke-width="2"/>
+  <text x="1045" y="279" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">文件解析库</text>
+  <text x="1045" y="301" font-size="12" fill="#5F6368" text-anchor="middle">PyPDF2（PDF）</text>
+  <text x="1045" y="321" font-size="12" fill="#5F6368" text-anchor="middle">python-pptx（PPTX）</text>
+  <text x="1045" y="341" font-size="12" fill="#5F6368" text-anchor="middle">按页提取纯文本</text>
+
+  <rect x="920" y="408" width="250" height="104" rx="9" fill="#F1F3F4" stroke="#5F6368" stroke-width="2"/>
+  <text x="1045" y="434" font-size="14" font-weight="bold" fill="#202124" text-anchor="middle">BM25 检索</text>
+  <text x="1045" y="456" font-size="12" fill="#5F6368" text-anchor="middle">词频关键词排序</text>
+  <text x="1045" y="476" font-size="12" fill="#5F6368" text-anchor="middle">检索 pages 表相关页</text>
+  <text x="1045" y="496" font-size="12" fill="#5F6368" text-anchor="middle">未命中拒答（反幻觉）</text>
+
+  <text x="600" y="770" font-size="12" fill="#5F6368" text-anchor="middle">实线箭头表示自上而下调用；虚线箭头表示能力层/应用层对外部依赖的调用</text>
+</svg>
